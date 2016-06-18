@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_StdWgts: Object TGUI_CheckBox</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<a name="TGUI_CheckBox"></a><h1 class="cio">Object TGUI_CheckBox</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td><a class="section" href="#PasDoc-Methods">Methods</a></td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="SG_GuiLib_StdWgts.html">SG_GuiLib_StdWgts</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGUI_CheckBox = object(<a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+:Generic Checkbox Object. Click to change its value. Can also act as a radio button by changing the ExcGroup to be less then 0 (and the same as the other now radio buttons). It only looks through one level of parent for siblings of a CheckBox type.</p>
+<a name="PasDoc-Hierarchy"></a><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Element.TGUI_Element.html">TGUI_Element</a></li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a></li>
+<li class="thisitem">TGUI_CheckBox</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#Value">Value</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#ExcGroup">ExcGroup</a></b>: word;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Methods"></a><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#Init_Checkbox">Init_Checkbox</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#Done_Checkbox">Done_Checkbox</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#SetValue">SetValue</a></b>(NewValue: boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#GetValue">GetValue</a></b>: boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#Render">Render</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#SetExcGroup">SetExcGroup</a></b>(NewExcGroup: word);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#GetExcGroup">GetExcGroup</a></b>: word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#ctrl_MouseClick">ctrl_MouseClick</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#ctrl_BoxChecked">ctrl_BoxChecked</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#ctrl_BoxUnchecked">ctrl_BoxUnchecked</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#BoxChecked">BoxChecked</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_CheckBox.html#BoxUnchecked">BoxUnchecked</a></b>(); virtual;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Value"></a><code><b>Value</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ExcGroup"></a><code><b>ExcGroup</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Init_Checkbox"></a><code>constructor <b>Init_Checkbox</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Checkbox Constructor</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Done_Checkbox"></a><code>destructor <b>Done_Checkbox</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Checkbox Destructor</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetValue"></a><code>procedure <b>SetValue</b>(NewValue: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Set the value of the checkbox - true (Checked) or false (Unchecked)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetValue"></a><code>function <b>GetValue</b>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the value of the checkbox - true (Checked) or false (Unchecked)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Render"></a><code>procedure <b>Render</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Render the checkbox</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetExcGroup"></a><code>procedure <b>SetExcGroup</b>(NewExcGroup: word);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Sets the Exclusive Group. If this is 0 (default) then the box operates as a normal checkbox. If it is non-zero then it operates as a radio button with all of the other checkboxes in the same Exclusive Group</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetExcGroup"></a><code>function <b>GetExcGroup</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the Exclusive Group</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseClick"></a><code>procedure <b>ctrl_MouseClick</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Control Mouse Click Handler</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_BoxChecked"></a><code>procedure <b>ctrl_BoxChecked</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when box is checked - should be overwritten by decendent controls</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_BoxUnchecked"></a><code>procedure <b>ctrl_BoxUnchecked</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when box is unchecked - should be overwritten by decendent controls</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="BoxChecked"></a><code>procedure <b>BoxChecked</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when box is checked - should be overwritten by the actual controls</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="BoxUnchecked"></a><code>procedure <b>BoxUnchecked</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when box is unchecked - should be overwritten by the actual controls</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

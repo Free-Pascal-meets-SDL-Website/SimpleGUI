@@ -1,0 +1,1099 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_Element: Object TGUI_Element</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<a name="TGUI_Element"></a><h1 class="cio">Object TGUI_Element</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td><a class="section" href="#PasDoc-Methods">Methods</a></td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="SG_GuiLib_Element.html">SG_GuiLib_Element</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGUI_Element = object(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+: Basic GUI element from which others are derived</p>
+<a name="PasDoc-Hierarchy"></a><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TGUI_Element</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#DbgName">DbgName</a></b>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Window">Window</a></b>: PSDL_Window;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Renderer">Renderer</a></b>: PSDL_Renderer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Texture">Texture</a></b>: PSDL_Texture;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#RecieveAllEvents">RecieveAllEvents</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#CurSelected">CurSelected</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Selectable">Selectable</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Children">Children</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#MyLL">MyLL</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Parent">Parent</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Width">Width</a></b>: word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Height">Height</a></b>: word;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Left">Left</a></b>: word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Top">Top</a></b>: word;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Visible">Visible</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#Enabled">Enabled</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseEntered">MouseEntered</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Element.TGUI_Element.html#ButtonStates">ButtonStates</a></b>: array[0..7] of boolean;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Methods"></a><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#Paint">Paint</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#Render">Render</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <b><a  href="SG_GuiLib_Element.TGUI_Element.html#init">init</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <b><a  href="SG_GuiLib_Element.TGUI_Element.html#done">done</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#AddChild">AddChild</a></b>(Child: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetParent">SetParent</a></b>(NewParent: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetParent">GetParent</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetWindow">GetWindow</a></b>: PSDL_Window;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetRenderer">GetRenderer</a></b>: PSDL_Renderer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetTexture">GetTexture</a></b>: PSDL_Texture;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetWidth">SetWidth</a></b>(NewWidth: word); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetWidth">GetWidth</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetHeight">SetHeight</a></b>(NewHeight: word); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetHeight">GetHeight</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetLeft">SetLeft</a></b>(NewLeft: word); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetLeft">GetLeft</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetTop">SetTop</a></b>(NewTop: word); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetTop">GetTop</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetLL">SetLL</a></b>(NewLL: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetLL">GetLL</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetEnabled">SetEnabled</a></b>(NewEnabled: boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetEnabled">GetEnabled</a></b>: boolean; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetSelected">SetSelected</a></b>(NewState: boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetSelected">GetSelected</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#UnselectChildren">UnselectChildren</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetSelectable">SetSelectable</a></b>(NewState: boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetSelectable">GetSelectable</a></b>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetChildren">GetChildren</a></b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetAbsLeft">GetAbsLeft</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetAbsTop">GetAbsTop</a></b>: word; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetRecieveAllEvents">SetRecieveAllEvents</a></b>(NewState: boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetRecieveAllEvents">GetRecieveAllEvents</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#DoDoneStuff">DoDoneStuff</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetVisible">SetVisible</a></b>(NewVisible: boolean); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetVisible">GetVisible</a></b>: boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ParentSizeCallback">ParentSizeCallback</a></b>(NewW, NewH: word); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SendSizeCallback">SendSizeCallback</a></b>(NewW, NewH: word);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetMouseEntered">GetMouseEntered</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#InControl">InControl</a></b>(X, Y: integer): boolean; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseEnter">ctrl_MouseEnter</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseExit">ctrl_MouseExit</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseDown">ctrl_MouseDown</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseUp">ctrl_MouseUp</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseMotion">ctrl_MouseMotion</a></b>(X, Y: word; ButtonState: UInt8); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_TextInput">ctrl_TextInput</a></b>(TextIn: <a  href="SG_GuiLib_Base.html#TSDLTextInputArray">TSDLTextInputArray</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_MouseClick">ctrl_MouseClick</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_Selected">ctrl_Selected</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_LostSelected">ctrl_LostSelected</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_KeyDown">ctrl_KeyDown</a></b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_KeyUp">ctrl_KeyUp</a></b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_Resize">ctrl_Resize</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#ctrl_SDLPassthrough">ctrl_SDLPassthrough</a></b>(e: PSDL_Event); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseEnter">MouseEnter</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseExit">MouseExit</a></b>(); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseDown">MouseDown</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseUp">MouseUp</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseMotion">MouseMotion</a></b>(X, Y: word; ButtonState: UInt8); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#TextInput">TextInput</a></b>(TextIn: <a  href="SG_GuiLib_Base.html#TSDLTextInputArray">TSDLTextInputArray</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#MouseClick">MouseClick</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#Selected">Selected</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#LostSelected">LostSelected</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#KeyDown">KeyDown</a></b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#KeyUp">KeyUp</a></b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#Resize">Resize</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Element.TGUI_Element.html#SetDbgName">SetDbgName</a></b>(Name: string);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Element.TGUI_Element.html#GetDbgName">GetDbgName</a></b>: string;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="DbgName"></a><code><b>DbgName</b>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Window"></a><code><b>Window</b>: PSDL_Window;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ATTENTION: Window and renderer can only be accessed by master functions (SetWindow, SetRenderer) and should be the same for all elements!</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Renderer"></a><code><b>Renderer</b>: PSDL_Renderer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Texture"></a><code><b>Texture</b>: PSDL_Texture;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="RecieveAllEvents"></a><code><b>RecieveAllEvents</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+SDL_TEXTUREACCESS_TARGET for direct rendering</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="CurSelected"></a><code><b>CurSelected</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+SDL_TEXTUREACCESS_TARGET for direct rendering</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Selectable"></a><code><b>Selectable</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+SDL_TEXTUREACCESS_TARGET for direct rendering</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Children"></a><code><b>Children</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="MyLL"></a><code><b>MyLL</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Parent"></a><code><b>Parent</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Width"></a><code><b>Width</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Generic properties of any GUI element. These are all relative to their respective parents</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Height"></a><code><b>Height</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Generic properties of any GUI element. These are all relative to their respective parents</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Left"></a><code><b>Left</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Top"></a><code><b>Top</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Visible"></a><code><b>Visible</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Visible effects whether or not the element is RenderAbsed, AS WELL as whether or not it will recieve events</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Enabled"></a><code><b>Enabled</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="MouseEntered"></a><code><b>MouseEntered</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ButtonStates"></a><code><b>ButtonStates</b>: array[0..7] of boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Paint"></a><code>procedure <b>Paint</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Draws controls on parent surface - but is really designed to _not_ be overwritten by children - controls should draw themselves in 'Render' The Render is done in the order of the ElementLL with the last item in the LL being the last item rendered (ie - on top)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Render"></a><code>procedure <b>Render</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="init"></a><code>constructor <b>init</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Dummy init for virtual methods - but might end up being used</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="done"></a><code>destructor <b>done</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Destructor is recursive - it will call its children</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="AddChild"></a><code>procedure <b>AddChild</b>(Child: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Adds a child element The child GUI_Element is added to the children field of calling GUI_Element. The child's parent is set to calling GUI_Element.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetParent"></a><code>procedure <b>SetParent</b>(NewParent: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Sets the parent of the element</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetParent"></a><code>function <b>GetParent</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element">PGUI_Element</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the parent of the element</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetWindow"></a><code>function <b>GetWindow</b>: PSDL_Window;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: SDL2: Get the window that the control is associated with</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetRenderer"></a><code>function <b>GetRenderer</b>: PSDL_Renderer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: SDL2: Get the renderer that the control is associated with</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetTexture"></a><code>function <b>GetTexture</b>: PSDL_Texture;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: SDL2: Get the texture that graphically represents the control</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetWidth"></a><code>procedure <b>SetWidth</b>(NewWidth: word); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Accessors for the generic properties</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetWidth"></a><code>function <b>GetWidth</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetHeight"></a><code>procedure <b>SetHeight</b>(NewHeight: word); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetHeight"></a><code>function <b>GetHeight</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetLeft"></a><code>procedure <b>SetLeft</b>(NewLeft: word); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetLeft"></a><code>function <b>GetLeft</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetTop"></a><code>procedure <b>SetTop</b>(NewTop: word); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetTop"></a><code>function <b>GetTop</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetLL"></a><code>procedure <b>SetLL</b>(NewLL: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetLL"></a><code>function <b>GetLL</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetEnabled"></a><code>procedure <b>SetEnabled</b>(NewEnabled: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetEnabled"></a><code>function <b>GetEnabled</b>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetSelected"></a><code>procedure <b>SetSelected</b>(NewState: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Push to front and change to look selected if necessary</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetSelected"></a><code>function <b>GetSelected</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="UnselectChildren"></a><code>procedure <b>UnselectChildren</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetSelectable"></a><code>procedure <b>SetSelectable</b>(NewState: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetSelectable"></a><code>function <b>GetSelectable</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetChildren"></a><code>function <b>GetChildren</b>: <a  href="SG_GuiLib_Element.html#PGUI_Element_LL">PGUI_Element_LL</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetAbsLeft"></a><code>function <b>GetAbsLeft</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Gets absolute coordinates of control recursively</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetAbsTop"></a><code>function <b>GetAbsTop</b>: word; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetRecieveAllEvents"></a><code>procedure <b>SetRecieveAllEvents</b>(NewState: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Whether or not the control sends the 'normal' events to itself when it passes them to children too. By default false</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetRecieveAllEvents"></a><code>function <b>GetRecieveAllEvents</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="DoDoneStuff"></a><code>procedure <b>DoDoneStuff</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called by the destructor of element - should be treated almost like a normal destructor. Child elements should overwrite this as it will be called by the destructor</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetVisible"></a><code>procedure <b>SetVisible</b>(NewVisible: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetVisible"></a><code>function <b>GetVisible</b>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ParentSizeCallback"></a><code>procedure <b>ParentSizeCallback</b>(NewW, NewH: word); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Called when size of a parent changes in case control needs to make adjustments of its own. SendSizeCallback is called when those messages need to be sent by this control</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SendSizeCallback"></a><code>procedure <b>SendSizeCallback</b>(NewW, NewH: word);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetMouseEntered"></a><code>function <b>GetMouseEntered</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns true if MouseEnter has been called and MouseExit hasn't yet been</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="InControl"></a><code>function <b>InControl</b>(X, Y: integer): boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns true if X, Y is in the control. Mostly to neaten up code but could be used to implement non-rectangular controls</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseEnter"></a><code>procedure <b>ctrl_MouseEnter</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+There are two types of events: - Ctrl events which are used by the controls themselves - these should only really be overwritten by new or modified widgets. Even then, the should still call the inherited procedures. Some (like setting) the mouseentered variable in ctrl_MouseEnter() are particularly important. - Normal events which are the ones that should be overwritten on a per control basis. The Ctrl events call the necessary normal ones.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseExit"></a><code>procedure <b>ctrl_MouseExit</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseDown"></a><code>procedure <b>ctrl_MouseDown</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseUp"></a><code>procedure <b>ctrl_MouseUp</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseMotion"></a><code>procedure <b>ctrl_MouseMotion</b>(X, Y: word; ButtonState: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_TextInput"></a><code>procedure <b>ctrl_TextInput</b>(TextIn: <a  href="SG_GuiLib_Base.html#TSDLTextInputArray">TSDLTextInputArray</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_MouseClick"></a><code>procedure <b>ctrl_MouseClick</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_Selected"></a><code>procedure <b>ctrl_Selected</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_LostSelected"></a><code>procedure <b>ctrl_LostSelected</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_KeyDown"></a><code>procedure <b>ctrl_KeyDown</b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_KeyUp"></a><code>procedure <b>ctrl_KeyUp</b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_Resize"></a><code>procedure <b>ctrl_Resize</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_SDLPassthrough"></a><code>procedure <b>ctrl_SDLPassthrough</b>(e: PSDL_Event); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+SDL_Passthrough passes raw SDL events to every control on the form - even invisible/inactive ones</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseEnter"></a><code>procedure <b>MouseEnter</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseExit"></a><code>procedure <b>MouseExit</b>(); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseDown"></a><code>procedure <b>MouseDown</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseUp"></a><code>procedure <b>MouseUp</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseMotion"></a><code>procedure <b>MouseMotion</b>(X, Y: word; ButtonState: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="TextInput"></a><code>procedure <b>TextInput</b>(TextIn: <a  href="SG_GuiLib_Base.html#TSDLTextInputArray">TSDLTextInputArray</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseClick"></a><code>procedure <b>MouseClick</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Selected"></a><code>procedure <b>Selected</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="LostSelected"></a><code>procedure <b>LostSelected</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="KeyDown"></a><code>procedure <b>KeyDown</b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="KeyUp"></a><code>procedure <b>KeyUp</b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Resize"></a><code>procedure <b>Resize</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetDbgName"></a><code>procedure <b>SetDbgName</b>(Name: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetDbgName"></a><code>function <b>GetDbgName</b>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

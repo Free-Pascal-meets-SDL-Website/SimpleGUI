@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_StdWgts: Object TGUI_Surface</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<a name="TGUI_Surface"></a><h1 class="cio">Object TGUI_Surface</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td><a class="section" href="#PasDoc-Methods">Methods</a></td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="SG_GuiLib_StdWgts.html">SG_GuiLib_StdWgts</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGUI_Surface = object(<a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+:Object which draws another surface to the screen</p>
+<a name="PasDoc-Hierarchy"></a><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Element.TGUI_Element.html">TGUI_Element</a></li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a></li>
+<li class="thisitem">TGUI_Surface</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#SrcSurface">SrcSurface</a></b>: PSDL_Surface;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#SrcRect">SrcRect</a></b>: TSDL_Rect;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#FullSrc">FullSrc</a></b>: boolean;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Methods"></a><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#Init_Surface">Init_Surface</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#Done_Surface">Done_Surface</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#SetSource">SetSource</a></b>(NewSrcSurface: pSDL_Surface);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#GetSource">GetSource</a></b>: pSDL_Surface;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#SetSrcRect">SetSrcRect</a></b>(NewRect: TSDL_Rect); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#GetSrcRect">GetSrcRect</a></b>: TSDL_Rect; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#SetFullSrc">SetFullSrc</a></b>(NewFullSrc: boolean);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#GetFullSrc">GetFullSrc</a></b>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Surface.html#Render">Render</a></b>; virtual;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="SrcSurface"></a><code><b>SrcSurface</b>: PSDL_Surface;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="SrcRect"></a><code><b>SrcRect</b>: TSDL_Rect;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FullSrc"></a><code><b>FullSrc</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Init_Surface"></a><code>constructor <b>Init_Surface</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Constructor for Surface Widget.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Done_Surface"></a><code>destructor <b>Done_Surface</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Destructor for Surface Widget.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetSource"></a><code>procedure <b>SetSource</b>(NewSrcSurface: pSDL_Surface);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Sets the source surface to draw from.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetSource"></a><code>function <b>GetSource</b>: pSDL_Surface;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the current source surface.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetSrcRect"></a><code>procedure <b>SetSrcRect</b>(NewRect: TSDL_Rect); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Sets the rectangle from where to draw from on the source surface.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetSrcRect"></a><code>function <b>GetSrcRect</b>: TSDL_Rect; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the current source surface rectangle to draw from.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetFullSrc"></a><code>procedure <b>SetFullSrc</b>(NewFullSrc: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Sets whether or not the surface takes the full size of the source surface or uses the bounding rectangle.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetFullSrc"></a><code>function <b>GetFullSrc</b>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns whether or not the surface takes the full size of the source surface or uses the bounding rectangle.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Render"></a><code>procedure <b>Render</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Renders the widget</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

@@ -1,0 +1,508 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_Canvas: Object TGUI_Canvas</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<a name="TGUI_Canvas"></a><h1 class="cio">Object TGUI_Canvas</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td><a class="section" href="#PasDoc-Methods">Methods</a></td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="SG_GuiLib_Canvas.html">SG_GuiLib_Canvas</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGUI_Canvas = object(<a class="normal" href="SG_GuiLib_Element.TGUI_Element.html">TGUI_Element</a>)</code></p>
+<h2 class="description">Description</h2>
+<div class="nodescription">no description available, TGUI_Element description follows</div><p>
+: Basic GUI element from which others are derived</p>
+<a name="PasDoc-Hierarchy"></a><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Element.TGUI_Element.html">TGUI_Element</a></li>
+<li class="thisitem">TGUI_Canvas</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#BackColor">BackColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#ForeColor">ForeColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#ActiveColor">ActiveColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#CurFillColor">CurFillColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#CurBorderColor">CurBorderColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FillStyle">FillStyle</a></b>: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#Caption">Caption</a></b>: PChar;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#BorderStyle">BorderStyle</a></b>: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#BorderColor">BorderColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#Font">Font</a></b>: pTTF_Font;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FontHeight">FontHeight</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FontAscent">FontAscent</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FontDescent">FontDescent</a></b>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FontLineSkip">FontLineSkip</a></b>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#FontMonospace">FontMonospace</a></b>: integer;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Methods"></a><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#Render">Render</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetBackColor">SetBackColor</a></b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetBackColor">GetBackColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetActiveColor">SetActiveColor</a></b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetActiveColor">GetActiveColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetForeColor">SetForeColor</a></b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetForeColor">GetForeColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetFont">SetFont</a></b>(InFont: pTTF_Font);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetFont">GetFont</a></b>: pTTF_Font;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetBorderStyle">SetBorderStyle</a></b>(NewStyle: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetBorderStyle">GetBorderStyle</a></b>: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetBorderColor">SetBorderColor</a></b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetBorderColor">GetBorderColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetFillStyle">SetFillStyle</a></b>(NewStyle: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetFillStyle">GetFillStyle</a></b>: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#SetCaption">SetCaption</a></b>(InCaption: string);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetCaption">GetCaption</a></b>: string;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#GetPCharCaption">GetPCharCaption</a></b>: PChar;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#DoDoneStuff">DoDoneStuff</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#ctrl_FontChanged">ctrl_FontChanged</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#Init_Canvas">Init_Canvas</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#Done_Canvas">Done_Canvas</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#DrawText">DrawText</a></b>(Textin: PChar; X, Y: word; Alignment: <a  href="SG_GuiLib_Base.html#tTextAlign">tTextAlign</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_Canvas.TGUI_Canvas.html#DrawText">DrawText</a></b>(Textin: string; X, Y: word; Alignment: <a  href="SG_GuiLib_Base.html#tTextAlign">tTextAlign</a>);</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="BackColor"></a><code><b>BackColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ForeColor"></a><code><b>ForeColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ActiveColor"></a><code><b>ActiveColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="CurFillColor"></a><code><b>CurFillColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="CurBorderColor"></a><code><b>CurBorderColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FillStyle"></a><code><b>FillStyle</b>: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Caption"></a><code><b>Caption</b>: PChar;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="BorderStyle"></a><code><b>BorderStyle</b>: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="BorderColor"></a><code><b>BorderColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Font"></a><code><b>Font</b>: pTTF_Font;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FontHeight"></a><code><b>FontHeight</b>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FontAscent"></a><code><b>FontAscent</b>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FontDescent"></a><code><b>FontDescent</b>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FontLineSkip"></a><code><b>FontLineSkip</b>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="FontMonospace"></a><code><b>FontMonospace</b>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Render"></a><code>procedure <b>Render</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetBackColor"></a><code>procedure <b>SetBackColor</b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetBackColor"></a><code>function <b>GetBackColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetActiveColor"></a><code>procedure <b>SetActiveColor</b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetActiveColor"></a><code>function <b>GetActiveColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetForeColor"></a><code>procedure <b>SetForeColor</b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetForeColor"></a><code>function <b>GetForeColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetFont"></a><code>procedure <b>SetFont</b>(InFont: pTTF_Font);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetFont"></a><code>function <b>GetFont</b>: pTTF_Font;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetBorderStyle"></a><code>procedure <b>SetBorderStyle</b>(NewStyle: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetBorderStyle"></a><code>function <b>GetBorderStyle</b>: <a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetBorderColor"></a><code>procedure <b>SetBorderColor</b>(InColor: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetBorderColor"></a><code>function <b>GetBorderColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetFillStyle"></a><code>procedure <b>SetFillStyle</b>(NewStyle: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetFillStyle"></a><code>function <b>GetFillStyle</b>: <a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="SetCaption"></a><code>procedure <b>SetCaption</b>(InCaption: string);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetCaption"></a><code>function <b>GetCaption</b>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetPCharCaption"></a><code>function <b>GetPCharCaption</b>: PChar;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="DoDoneStuff"></a><code>procedure <b>DoDoneStuff</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_FontChanged"></a><code>procedure <b>ctrl_FontChanged</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Init_Canvas"></a><code>constructor <b>Init_Canvas</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Done_Canvas"></a><code>destructor <b>Done_Canvas</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="DrawText"></a><code>procedure <b>DrawText</b>(Textin: PChar; X, Y: word; Alignment: <a  href="SG_GuiLib_Base.html#tTextAlign">tTextAlign</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="DrawText"></a><code>procedure <b>DrawText</b>(Textin: string; X, Y: word; Alignment: <a  href="SG_GuiLib_Base.html#tTextAlign">tTextAlign</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

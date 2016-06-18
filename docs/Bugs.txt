@@ -1,0 +1,11 @@
+Bugs:
+
+1.  2009.11.29  No Alpha in TGUI_Canvas back drawing
+    2009.11.29  Resolved - needs to be drawn on to a seperate RGBA surface
+                before drawing on screen
+    
+Issues/ToDo
+
+1.  2010.01.14  Textbox isn't completely finished - still needs
+                - Selecting
+                - Clicking to move cursor

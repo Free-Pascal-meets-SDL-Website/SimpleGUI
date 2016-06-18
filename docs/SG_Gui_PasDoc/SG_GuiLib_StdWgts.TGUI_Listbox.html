@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_StdWgts: Object TGUI_Listbox</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<a name="TGUI_Listbox"></a><h1 class="cio">Object TGUI_Listbox</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></td><td><a class="section" href="#PasDoc-Fields">Fields</a></td><td><a class="section" href="#PasDoc-Methods">Methods</a></td><td>Properties</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a  href="SG_GuiLib_StdWgts.html">SG_GuiLib_StdWgts</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGUI_Listbox = object(<a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+: Widget that displays a listbox</p>
+<a name="PasDoc-Hierarchy"></a><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Element.TGUI_Element.html">TGUI_Element</a></li>
+<li class="ancestor"><a class="normal" href="SG_GuiLib_Canvas.TGUI_Canvas.html">TGUI_Canvas</a></li>
+<li class="thisitem">TGUI_Listbox</li></ul><h2 class="overview">Overview</h2>
+<a name="PasDoc-Fields"></a><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#Items">Items</a></b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ListCount">ListCount</a></b>: word;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ItemsToShow">ItemsToShow</a></b>: word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#Scrollbar">Scrollbar</a></b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_ScrollBar">PGUI_Scrollbar</a>;</code></td>
+</tr>
+</table>
+<a name="PasDoc-Methods"></a><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#Init_Listbox">Init_Listbox</a></b>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#Done_Listbox">Done_Listbox</a></b>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#DoDoneStuff">DoDoneStuff</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#GetItems">GetItems</a></b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#Render">Render</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ctrl_FontChanged">ctrl_FontChanged</a></b>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ctrl_Resize">ctrl_Resize</a></b>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ctrl_KeyDown">ctrl_KeyDown</a></b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#MouseDown">MouseDown</a></b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#ctrl_NewSelection">ctrl_NewSelection</a></b>(Selection: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#NewSelection">NewSelection</a></b>(Selection: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <b><a  href="SG_GuiLib_StdWgts.TGUI_Listbox.html#GetSelectedItem">GetSelectedItem</a></b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Items"></a><code><b>Items</b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ListCount"></a><code><b>ListCount</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="ItemsToShow"></a><code><b>ItemsToShow</b>: word;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><a name="Scrollbar"></a><code><b>Scrollbar</b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_ScrollBar">PGUI_Scrollbar</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Init_Listbox"></a><code>constructor <b>Init_Listbox</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Listbox constructor</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Done_Listbox"></a><code>destructor <b>Done_Listbox</b>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Listbox destructor - will probably never be called</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="DoDoneStuff"></a><code>procedure <b>DoDoneStuff</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Actual destructor stuff that is guaranteed to be called</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetItems"></a><code>function <b>GetItems</b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns list of items</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="Render"></a><code>procedure <b>Render</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Renders the widget</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_FontChanged"></a><code>procedure <b>ctrl_FontChanged</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when the font changes</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_Resize"></a><code>procedure <b>ctrl_Resize</b>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when the control is resized</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_KeyDown"></a><code>procedure <b>ctrl_KeyDown</b>(KeySym: TSDL_KeySym); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when the control recieves a keypress</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="MouseDown"></a><code>procedure <b>MouseDown</b>(X, Y: word; Button: UInt8); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Called when the listbox is clicked</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="ctrl_NewSelection"></a><code>procedure <b>ctrl_NewSelection</b>(Selection: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Should be overwritten by children. Will be called when the selection is changed</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="NewSelection"></a><code>procedure <b>NewSelection</b>(Selection: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Will be called when the selection is changed</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a  href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><a name="GetSelectedItem"></a><code>function <b>GetSelectedItem</b>: <a  href="SG_GuiLib_StdWgts.html#PGUI_Listbox_Item">PGUI_Listbox_Item</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+: Returns the currently selected item</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+<head>
+<title>Simple GUI Documentation: SG_GuiLib_Base</title>
+<meta name="generator" content="PasDoc 0.14.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<table class="container"><tr><td class="navigation">
+<h2>Simple GUI Documentation</h2><p><a href="AllUnits.html" class="navigation">Units</a></p><p><a href="ClassHierarchy.html" class="navigation">Class Hierarchy</a></p><p><a href="AllClasses.html" class="navigation">Classes, Interfaces, Objects and Records</a></p><p><a href="AllTypes.html" class="navigation">Types</a></p><p><a href="AllVariables.html" class="navigation">Variables</a></p><p><a href="AllConstants.html" class="navigation">Constants</a></p><p><a href="AllFunctions.html" class="navigation">Functions and Procedures</a></p><p><a href="AllIdentifiers.html" class="navigation">Identifiers</a></p></td><td class="content">
+<h1 class="unit">Unit SG_GuiLib_Base</h1>
+<table class="sections wide_list">
+<tr>
+<td><a class="section" href="#PasDoc-Description">Description</a></td><td>Uses</td><td><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></td><td>Functions and Procedures</td><td><a class="section" href="#PasDoc-Types">Types</a></td><td><a class="section" href="#PasDoc-Constants">Constants</a></td><td>Variables</td></tr></table>
+<a name="PasDoc-Description"></a><h2 class="description">Description</h2>
+&nbsp;<a name="PasDoc-Uses"></a><h2 class="overview">Overview</h2>
+<a name="PasDoc-Classes"></a><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">record&nbsp;<a class="bold" href="SG_GuiLib_Base.tRGBA.html"><code>tRGBA</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<a name="PasDoc-Types"></a><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#TSDLTextInputArray">TSDLTextInputArray</a></b> = array[0..SDL_TEXTINPUTEVENT_TEXT_SIZE] of char;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#tTextAlign">tTextAlign</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#tVertAlign">tVertAlign</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#tDir">tDir</a></b> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#tBorderStyle">tBorderStyle</a></b> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#tFillStyle">tFillStyle</a></b> = (...);</code></td>
+</tr>
+</table>
+<a name="PasDoc-Constants"></a><h3 class="summary">Constants</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultBackColor">GUI_DefaultBackColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 48; G: 48; B: 48; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultTextBackColor">GUI_DefaultTextBackColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 24; A: 255);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultForeColor">GUI_DefaultForeColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 190; G: 190; B: 190; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultBorderColor">GUI_DefaultBorderColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 64; G: 64; B: 64; A: 255);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultFormBack">GUI_DefaultFormBack</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 32; G: 32; B: 32; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultTitleBarBack">GUI_DefaultTitleBarBack</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultUnselectedTitleBarBack">GUI_DefaultUnselectedTitleBarBack</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 24; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_SelectedColor">GUI_SelectedColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DefaultActiveColor">GUI_DefaultActiveColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_TitleBarHeight">GUI_TitleBarHeight</a></b> = 25;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_FullTrans">GUI_FullTrans</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 0; G: 0; B: 0; A: 0);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_ScrollbarSize">GUI_ScrollbarSize</a></b> = 11;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#GUI_DebugColor">GUI_DebugColor</a></b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 0; G: 255; B: 0; A: 255);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><b><a  href="SG_GuiLib_Base.html#amask">amask</a></b> = $000000ff;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="TSDLTextInputArray"></a><code><b>TSDLTextInputArray</b> = array[0..SDL_TEXTINPUTEVENT_TEXT_SIZE] of char;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Necessary to pass typed array as func./proc. parameter. It contains the input information as returned by SDL event SDL_TextInput.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="tTextAlign"></a><code><b>tTextAlign</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Align_Left: &nbsp;</li>
+<li>
+Align_Center: &nbsp;</li>
+<li>
+Align_Right: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="tVertAlign"></a><code><b>tVertAlign</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+VAlign_Top: &nbsp;</li>
+<li>
+VAlign_Center: &nbsp;</li>
+<li>
+VAlign_Bottom: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="tDir"></a><code><b>tDir</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+Dir_Horizontal: &nbsp;</li>
+<li>
+Dir_Vertical: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="tBorderStyle"></a><code><b>tBorderStyle</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+BS_None: &nbsp;</li>
+<li>
+BS_Single: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="tFillStyle"></a><code><b>tFillStyle</b> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+FS_None: &nbsp;</li>
+<li>
+FS_Filled: &nbsp;</li>
+</ul>
+</td></tr>
+</table>
+<h3 class="detail">Constants</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultBackColor"></a><code><b>GUI_DefaultBackColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 48; G: 48; B: 48; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Default Colors and Consts</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultTextBackColor"></a><code><b>GUI_DefaultTextBackColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 24; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultForeColor"></a><code><b>GUI_DefaultForeColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 190; G: 190; B: 190; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultBorderColor"></a><code><b>GUI_DefaultBorderColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 64; G: 64; B: 64; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultFormBack"></a><code><b>GUI_DefaultFormBack</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 32; G: 32; B: 32; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultTitleBarBack"></a><code><b>GUI_DefaultTitleBarBack</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultUnselectedTitleBarBack"></a><code><b>GUI_DefaultUnselectedTitleBarBack</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 24; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_SelectedColor"></a><code><b>GUI_SelectedColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DefaultActiveColor"></a><code><b>GUI_DefaultActiveColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 24; G: 24; B: 64; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_TitleBarHeight"></a><code><b>GUI_TitleBarHeight</b> = 25;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_FullTrans"></a><code><b>GUI_FullTrans</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 0; G: 0; B: 0; A: 0);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_ScrollbarSize"></a><code><b>GUI_ScrollbarSize</b> = 11;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="GUI_DebugColor"></a><code><b>GUI_DebugColor</b>: <a  href="SG_GuiLib_Base.tRGBA.html">tRGBA</a> = (R: 0; G: 255; B: 0; A: 255);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><a name="amask"></a><code><b>amask</b> = $000000ff;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Conv. SDL2: only for debug purposes</p>
+</td></tr>
+</table>
+<hr noshade size="1"><span class="appinfo"><em>Generated by <a  href="http://pasdoc.sourceforge.net/">PasDoc 0.14.0</a>. </em>
+</span>
+</td></tr></table></body></html>
