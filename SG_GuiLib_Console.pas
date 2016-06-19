@@ -1,5 +1,7 @@
 unit SG_GuiLib_Console;
-{:< The console object and its supporting types}
+{:< The console object and its supporting types
+    - NOT IMPLEMENTED YET IN SimpleGUI -
+}
 
 {
 
@@ -74,6 +76,8 @@ const
 
 type
 
+(*
+
   pXYWord = ^tXYWord;
 
   tXYWord = record
@@ -128,7 +132,11 @@ type
     TransBackDefault: boolean;
   end;
 
+*)
+
 implementation
+
+(*
 
 constructor TGUI_Console.Init_Console;
 begin
@@ -293,6 +301,8 @@ begin
       transback := transbackdefault;
     end;
 end;
+
+*)
 
 begin
 

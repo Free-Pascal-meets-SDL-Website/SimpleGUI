@@ -44,6 +44,15 @@ program GUITest_SDL2;
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
     IN THE SOFTWARE.
 
+    Installation
+    ************
+    - make sure you have SDL2 library installed on your system
+      (get here: http://libsdl.org/)
+    - make sure you have SDL2 units available
+      (get here: https://github.com/ev1313/Pascal-SDL-2-Headers)
+    - add the correct path to the SDL2 units to this project
+      (Project -> Project settings -> Paths -> Other unit files)
+
 }
 
 uses
@@ -62,20 +71,20 @@ var
   Renderer: PSDL_Renderer;
   Window: PSDL_Window;
   Logo: PSDL_Surface;
-  Font: pTTF_Font;
+  Font: PTTF_Font;
 
   BorderColor: TRGBA;
 
-  Form1, Form2, Form3, Form4: pGUI_Form;
-  Button1, Button2: pGUI_Button;
-  Chkbox1: pGUI_CheckBox;
-  Chkbox2, Chkbox3: pGUI_CheckBox;
-  Label1: pGUI_Label;
-  Textbox1: pGUI_Textbox;
-  ImageSfc: pGUI_Surface;
+  Form1, Form2, Form3, Form4: PGUI_Form;
+  Button1, Button2: PGUI_Button;
+  Chkbox1: PGUI_CheckBox;
+  Chkbox2, Chkbox3: PGUI_CheckBox;
+  Label1: PGUI_Label;
+  Textbox1: PGUI_Textbox;
+  ImageSfc: PGUI_Surface;
   Listbox: PGUI_Listbox;
 
-  Master: pGUI_Master;
+  Master: PGUI_Master;
 
   Event: TSDL_Event;
   StillGoing: boolean;
