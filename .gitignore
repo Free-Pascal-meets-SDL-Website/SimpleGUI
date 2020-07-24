@@ -4,6 +4,7 @@
 *.ppu
 *.compiled
 *.a
+backup/
 
 # Compiled source #
 ###################
