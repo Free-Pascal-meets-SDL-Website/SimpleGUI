@@ -2,6 +2,8 @@
 SimpleGUI is a native, SDL2 powered, object oriented Object Pascal graphical
 user interface library.
 
+![alt Example Screenshot](example/Screenshot.png "Example Screenshot")
+
 It is based upon Lachlan Kingford's GUI (LK GUI) written for SDL 1.2.
 (https://sourceforge.net/projects/lkgui)
 
