@@ -39,7 +39,7 @@ It is based upon Lachlan Kingford's GUI (LK GUI) written for SDL 1.2.
 * update docs
 
 # License
-##The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright (c) 2016-2020 Matthias J. Molski
 
