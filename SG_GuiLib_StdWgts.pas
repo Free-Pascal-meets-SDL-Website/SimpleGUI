@@ -1,238 +1,219 @@
 unit SG_GuiLib_StdWgts;
-{:< The Standard Widgets Library}
+{:< The Standard Widgets Unit}
 
-{
+{ Simple GUI is a generic SDL2/Pascal GUI library by Matthias J. Molski,
+  get more infos here:
+    https://github.com/Free-Pascal-meets-SDL-Website/SimpleGUI.
 
-  Simple GUI is based upon Lachlans GUI (LK GUI). LK GUI's original source code
-  remark is shown below.
+  It is based upon LK GUI by Lachlan Kingsford for SDL 1.2/Free Pascal,
+  get it here: https://sourceforge.net/projects/lkgui.
 
   Written permission to re-license the library has been granted to me by the
   original author.
 
-}
+  Copyright (c) 2016-2020 Matthias J. Molski
 
-{*******************************************************}
-{                                                       }
-{       Lachlans GUI Library                            }
-{       Standard Widgets Library                        }
-{                                                       }
-{       Copyright (c) 2009-10 Lachlan Kingsford         }
-{                                                       }
-{*******************************************************}
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-{
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
-    Simple GUI
-    **********
-
-    Copyright (c) 2016 Matthias J. Molski
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to
-    deal in the Software without restriction, including without limitation the
-    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-    sell copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-    IN THE SOFTWARE.
-
-}
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE. }
 
 interface
 
-uses SDL2, SDL2_TTF, SDL_Tools, Math,
+uses SDL2, SDL2_TTF, Math,
   SG_GuiLib_Base, SG_GuiLib_Element, SG_GuiLib_Canvas;
 
 type
-  PGUI_Button = ^TGUI_Button;
-  {:Generic Button Object}
-  TGUI_Button = object(TGUI_Canvas)
+
+  { TGUI_Button }
+  {: Generic Button Class }
+  TGUI_Button = class(TGUI_Canvas)
   public
     {: Render the button }
-    procedure Render; virtual;
+    procedure Render; override;
     {: Constructor for the button }
-    constructor Init_Button;
+    constructor Create;
     {: Destructor for the button }
-    destructor Done_Button;
+    destructor Destroy; override;
 
-    {: Control mouse entry procedure}
-    procedure ctrl_MouseEnter(); virtual;
-    {: Control mouse entry procedure}
-    procedure ctrl_MouseExit(); virtual;
+    {: Control mouse entry procedure }
+    procedure ctrl_MouseEnter; override;
+    {: Control mouse entry procedure }
+    procedure ctrl_MouseExit; override;
 
   protected
   private
   end;
 
-  PGUI_CheckBox = ^TGUI_CheckBox;
-  {:Generic Checkbox Object. Click to change its value.
-  Can also act as a radio button by changing the ExcGroup to be less then 0
-  (and the same as the other now radio buttons). It only looks through one
-  level of parent for siblings of a CheckBox type.}
-  TGUI_CheckBox = object(TGUI_Canvas)
+  { TGUI_CheckBox }
+  {: Generic Checkbox Class. Click to change its value.
+    Can also act as a radio button by changing the ExcGroup to be less then 0
+    (and the same as the other now radio buttons). It only looks through one
+    level of parent for siblings of a CheckBox type. }
+  TGUI_CheckBox = class(TGUI_Canvas)
   public
     {: Checkbox Constructor }
-    constructor Init_Checkbox;
+    constructor Create;
     {: Checkbox Destructor }
-    destructor Done_Checkbox;
+    destructor Destroy; override;
     {: Set the value of the checkbox - true (Checked) or false (Unchecked) }
-    procedure SetValue(NewValue: boolean); virtual;
-      {: Returns the value of the checkbox  - true (Checked) or
-      false (Unchecked) }
-    function GetValue: boolean; virtual;
-    {: Render the checkbox}
-    procedure Render; virtual;
-      {: Sets the Exclusive Group. If this is 0 (default) then the box operates
+    procedure SetValue(NewValue: Boolean); virtual;
+    {: Returns the value of the checkbox  - true (Checked) or false (Unchecked)
+     }
+    function GetValue: Boolean; virtual;
+    {: Render the checkbox }
+    procedure Render; override;
+    {: Sets the Exclusive Group. If this is 0 (default) then the box operates
       as a normal checkbox. If it is non-zero then it operates as a radio button
-      with all of the other checkboxes in the same Exclusive Group}
-    procedure SetExcGroup(NewExcGroup: word);
+      with all of the other checkboxes in the same Exclusive Group }
+    procedure SetExcGroup(NewExcGroup: Word);
     {: Returns the Exclusive Group }
-    function GetExcGroup: word;
-    {: Control Mouse Click Handler}
-    procedure ctrl_MouseClick(X, Y: word; Button: UInt8); virtual;
-      {: Called when box is checked - should be overwritten by decendent
-      controls}
-    procedure ctrl_BoxChecked(); virtual;
-      {: Called when box is unchecked - should be overwritten by decendent
-      controls}
-    procedure ctrl_BoxUnchecked(); virtual;
-      {: Called when box is checked - should be overwritten by the actual
-      controls}
-    procedure BoxChecked(); virtual;
-      {: Called when box is unchecked - should be overwritten by the actual
-      controls}
-    procedure BoxUnchecked(); virtual;
+    function GetExcGroup: Word;
+    {: Control Mouse Click Handler }
+    procedure ctrl_MouseClick(X, Y: Word; Button: UInt8); override;
+    {: Called when box is checked - should be overwritten by decendent
+      controls }
+    procedure ctrl_BoxChecked; virtual;
+    {: Called when box is unchecked - should be overwritten by decendent
+      controls }
+    procedure ctrl_BoxUnchecked; virtual;
+    {: Called when box is checked - should be overwritten by the actual
+      controls }
+    procedure BoxChecked; virtual;
+    {: Called when box is unchecked - should be overwritten by the actual
+      controls }
+    procedure BoxUnchecked; virtual;
   protected
-    Value: boolean;
-    ExcGroup: word;
+    Value: Boolean;
+    ExcGroup: Word;
   private
   end;
 
-  PGUI_Label = ^TGUI_Label;
-  {:Generic Label Object}
-  TGUI_Label = object(TGUI_Canvas)
+  { TGUI_Label }
+  {: Generic Label Class }
+  TGUI_Label = class(TGUI_Canvas)
   public
-    {: Label Constructor}
-    constructor Init_Label;
-    {: Label Destructor (probably not needed}
-    destructor Done_Label;
-    {: Render control to its surface}
-    procedure Render; virtual;
-    {: Set the Text Alignment}
+    {: Label Constructor }
+    constructor Create;
+    {: Label Destructor }
+    destructor Destroy; override;
+    {: Render label }
+    procedure Render; override;
+    {: Set the Text Alignment }
     procedure SetTextA(NewTextA: tTextAlign);
-    {: Get the Text Alignment}
+    {: Get the Text Alignment }
     function GetTextA: tTextAlign;
-    {: Set the Texts Vertical Alignment}
+    {: Set the Texts Vertical Alignment }
     procedure SetVertA(NewVertA: tVertAlign);
-    {: Return the Texts Vertical Alignment}
+    {: Return the Texts Vertical Alignment }
     function GetVertA: tVertAlign;
   protected
     TextA: tTextAlign;
     VertA: tVertAlign;
   end;
 
-  PGUI_ScrollBar = ^TGUI_Scrollbar;
-  {: Generic Scrollbar Object}
-  TGUI_ScrollBar = object(TGUI_Canvas)
+  { TGUI_ScrollBar }
+  {: Generic Scrollbar Class }
+  TGUI_ScrollBar = class(TGUI_Canvas)
   public
-    {: Scrollbar Constructor}
-    constructor Init_ScrollBar;
-    {: Scrollbar Destructor (probably not needed)}
-    destructor Done_ScrollBar;
-    {: Render scrollbar}
-    procedure Render; virtual;
-    {: Sets minimum value of scrollbar}
-    procedure SetMin(NewMinVal: integer);
-    {: Returns the minimum value of scrollbar}
-    function GetMin: integer;
-    {: Sets maximum value of scrollbar}
-    procedure SetMax(NewMaxVal: integer);
-    {: Returns maximum value of scrollbar}
-    function GetMax: integer;
-    {: Sets the value of the scrollbar}
-    procedure SetValue(NewValue: integer);
-    {: Returns the current value of scrollbar}
-    function GetValue: integer;
-    {: Sets whether the scrollbar is horizontal or vertical}
-    procedure SetDir(NewDir: TDir);
-    {: Returns whether the scrollbar is horizontal or vertical}
-    function GetDir: TDir;
-      {: Sets whether the scrollbar automatically aligns itself to the right of
+    {: Scrollbar Constructor }
+    constructor Create;
+    {: Scrollbar Destructor }
+    destructor Destroy; override;
+    {: Render scrollbar }
+    procedure Render; override;
+    {: Sets minimum value of scrollbar }
+    procedure SetMin(NewMinVal: Integer);
+    {: Returns the minimum value of scrollbar }
+    function GetMin: Integer;
+    {: Sets maximum value of scrollbar }
+    procedure SetMax(NewMaxVal: Integer);
+    {: Returns maximum value of scrollbar }
+    function GetMax: Integer;
+    {: Sets the value of the scrollbar }
+    procedure SetValue(NewValue: Integer);
+    {: Returns the current value of scrollbar }
+    function GetValue: Integer;
+    {: Sets whether the scrollbar is horizontal or vertical }
+    procedure SetDir(NewDir: TDirection);
+    {: Returns whether the scrollbar is horizontal or vertical }
+    function GetDir: TDirection;
+    {: Sets whether the scrollbar automatically aligns itself to the right of
       its parent (for a vertical bar) or the bottom of its parent (for a
       horizontal bar). }
-    procedure SetAutoAlign(NewValue: boolean);
-    {: Returns the whether the scrollbar automatically aligns itself.}
-    function GetAutoAlign: boolean;
-      {: Sets whether the scrollbar accounts for a second scroll bar in the
+    procedure SetAutoAlign(NewValue: Boolean);
+    {: Returns the whether the scrollbar automatically aligns itself. }
+    function GetAutoAlign: Boolean;
+    {: Sets whether the scrollbar accounts for a second scroll bar in the
       opposite direction hence leaving the bottom right corner free }
-    procedure SetAutoAlignBoth(NewValue: boolean);
+    procedure SetAutoAlignBoth(NewValue: Boolean);
     {: Returns autoalignboth }
-    function GetAutoAlignBoth: boolean;
+    function GetAutoAlignBoth: Boolean;
     {: Called when parents size changes }
-    procedure ParentSizeCallback(NewW, NewH: word); virtual;
-    {: Should be only called by parent control - Controls Mouse Down Handler}
-    procedure ctrl_MouseDown(X, Y: word; Button: UInt8); virtual;
-    {: Should be only called by parent control - Controls Mouse Up Handler}
-    procedure ctrl_MouseUp(X, Y: word; Button: UInt8); virtual;
-    {: Should be only called by control - Controls Value Changes Handler}
-    procedure ctrl_ValueChanged(NewValue: integer); virtual;
-    {: Should be only called by parent control - SDL Event Handler}
-    procedure ctrl_SDLPassthrough(e: PSDL_Event); virtual;
-      {: Called when value of scroll bar has changed - should be overwritten
-      by child controls}
-    procedure ValueChanged(NewValue: integer); virtual;
+    procedure ParentSizeCallback(NewW, NewH: Word); override;
+    {: Should be only called by parent control - Controls Mouse Down Handler }
+    procedure ctrl_MouseDown(X, Y: Word; Button: UInt8); override;
+    {: Should be only called by parent control - Controls Mouse Up Handler }
+    procedure ctrl_MouseUp(X, Y: Word; Button: UInt8); override;
+    {: Should be only called by control - Controls Value Changes Handler }
+    procedure ctrl_ValueChanged(NewValue: Integer); virtual;
+    {: Should be only called by parent control - SDL Event Handler }
+    procedure ctrl_SDLPassthrough(e: PSDL_Event); override;
+    {: Called when value of scroll bar has changed - should be overwritten
+      by child controls }
+    procedure ValueChanged(NewValue: Integer); virtual;
   protected
-    MinVal, MaxVal, Value: integer;
-    InitX, InitY: word;
-    Dir: TDir;
-    Moving: boolean;
-    Autoalign, Autoalignboth: boolean;
+    MinVal, MaxVal, Value: Integer;
+    InitX, InitY: Word;
+    Dir: TDirection;
+    Moving: Boolean;
+    Autoalign, Autoalignboth: Boolean;
   private
   end;
 
-  PGUI_TextBox = ^TGUI_TextBox;
-  {:Generic Testbox Object. It could probably still be classified as unfinished
-  owing to the fact that its cursor is still a caret('^'), clicks don't move
-  the cursor and it sticks to showing the left side of its contents}
-  TGUI_TextBox = object(TGUI_Canvas)
+  { TGUI_TextBox }
+  {: Generic Testbox Class. It could probably still be classified as unfinished
+    owing to the fact that its cursor is still a caret('^'), clicks don't move
+    the cursor and it sticks to showing the left side of its contents }
+  TGUI_TextBox = class(TGUI_Canvas)
   public
-    constructor Init_TextBox;
-    destructor Done_TextBox;
-    procedure Render; virtual;
-    procedure ctrl_Selected; virtual;
-    procedure ctrl_LostSelected; virtual;
+    constructor Create;
+    destructor Destroy; override;
+    procedure Render; override;
+    procedure ctrl_Selected; override;
+    procedure ctrl_LostSelected; override;
 
-    procedure ctrl_KeyDown(KeySym: TSDL_KeySym); virtual;
-    procedure ctrl_KeyUp(KeySym: TSDL_KeySym); virtual;
-    procedure ctrl_TextInput(TextIn: TSDLTextInputArray); virtual;
-    procedure KeyDown(KeySym: TSDL_KeySym); virtual;
-    procedure KeyUp(KeySym: TSDL_KeySym); virtual;
+    procedure ctrl_KeyDown(KeySym: TSDL_KeySym); override;
+    procedure ctrl_KeyUp(KeySym: TSDL_KeySym); override;
+    procedure ctrl_TextInput(TextIn: TSDLTextInputArray); override;
+    procedure KeyDown(KeySym: TSDL_KeySym); override;
+    procedure KeyUp(KeySym: TSDL_KeySym); override;
 
     procedure ctrl_TextChanged(); virtual;
     procedure TextChanged; virtual;
 
     procedure SetText(InText: string);
     function GetText: string;
-    function GetPCharText: PChar;
-
-    procedure DoDoneStuff; virtual;
   protected
-    Cursor: integer;
-    Text: PChar;
+    Cursor: Integer;
     StrText: string;
 
-    IsSelected: boolean;
+    IsSelected: Boolean;
 
-    procedure MoveCursor(Amt: integer);
+    procedure MoveCursor(Amt: Integer);
     procedure CursorInsert(Character: TSDLTextInputArray);
     procedure CursorBackspace;
     procedure CursorDelete;
@@ -241,14 +222,15 @@ type
   private
   end;
 
-  PGUI_Surface = ^TGUI_Surface;
-  {:Object which draws another surface to the screen}
-  TGUI_Surface = object(TGUI_Canvas)
+  { TGUI_Surface }
+  { TODO : Still to update! }
+  {: Class which draws another surface to the screen }
+  TGUI_Surface = class(TGUI_Canvas)
   public
     {: Constructor for Surface Widget. }
-    constructor Init_Surface;
+    constructor Create;
     {: Destructor for Surface Widget. }
-    destructor Done_Surface;
+    destructor Destroy; override;
     {: Sets the source surface to draw from. }
     procedure SetSource(NewSrcSurface: pSDL_Surface);
     {: Returns the current source surface. }
@@ -257,111 +239,108 @@ type
     procedure SetSrcRect(NewRect: TSDL_Rect); virtual;
     {: Returns the current source surface rectangle to draw from. }
     function GetSrcRect: TSDL_Rect; virtual;
-      {: Sets whether or not the surface takes the full size of the source
-      surface or uses the bounding rectangle.}
-    procedure SetFullSrc(NewFullSrc: boolean);
-      {: Returns whether or not the surface takes the full size of the source
-      surface or uses the bounding rectangle.}
-    function GetFullSrc: boolean;
+    {: Sets whether or not the surface takes the full size of the source
+    surface or uses the bounding rectangle.}
+    procedure SetFullSrc(NewFullSrc: Boolean);
+    {: Returns whether or not the surface takes the full size of the source
+    surface or uses the bounding rectangle.}
+    function GetFullSrc: Boolean;
     {: Renders the widget }
     procedure Render; virtual;
   protected
     SrcSurface: PSDL_Surface;
 
     SrcRect: TSDL_Rect;
-    FullSrc: boolean;
+    FullSrc: Boolean;
   private
   end;
 
-  PGUI_Listbox = ^TGUI_Listbox;
-  PGUI_Listbox_Item = ^TGUI_Listbox_Item;
-
+  { TGUI_Listbox_Item }
   {: Linked list of items in the Listbox or Dropbox. }
-  TGUI_Listbox_Item = object
+  TGUI_Listbox_Item = class
   public
     {: Next item in list. }
-    Next: PGUI_Listbox_Item;
+    Next: TGUI_Listbox_Item;
     {: Previous item in list. }
-    Prev: PGUI_Listbox_Item;
-    nullfirst: boolean;
+    Prev: TGUI_Listbox_Item;
+    NullFirst: Boolean;
     {: Returns the final item in the list. }
-    function Last: PGUI_Listbox_Item;
+    function Last: TGUI_Listbox_Item;
     {: Returns the first item in the list. }
-    function First: PGUI_Listbox_Item;
-      {: Returns a string version of the item - could be changed by child
-      objects to return something different. Essentially, this is the bit
+    function First: TGUI_Listbox_Item;
+    {: Returns a string version of the item - could be changed by child
+      classes to return something different. Essentially, this is the bit
       that is displayed. }
     function GetStr: string; virtual;
     {: Sets the string to display. }
     procedure SetStr(NewString: string); virtual;
     {: Returns the index of this item. }
-    function GetIndex: integer;
+    function GetIndex: Integer;
     {: Sets the index of this item. }
-    procedure SetIndex(NewIndex: integer);
+    procedure SetIndex(NewIndex: Integer);
     {: Adds a new listbox_item with the test NewText and index NewIndex. }
-    procedure AddItem(NewStr: string; NewIndex: integer);
+    procedure AddItem(NewStr: string; NewIndex: Integer);
     {: Makes this the final item in the Linked list. }
     procedure PushToLast;
     {: Initialises Linked List. }
-    constructor init;
+    constructor Create;
     {: Destructor of Item. }
-    destructor done;
-      {: Returns the item bearing the index number. Returns nil if there is
+    destructor Destroy; override;
+    {: Returns the item bearing the index number. Returns nil if there is
       no such item. }
-    function ReturnItem(ItemIndex: integer): PGUI_listbox_item;
-      {: Sets whether the item is selected. If so, it will then unselect all
+    function ReturnItem(ItemIndex: Integer): TGUI_listbox_item;
+    {: Sets whether the item is selected. If so, it will then unselect all
       other items in the list.}
-    procedure SetSelected(NewSel: boolean);
+    procedure SetSelected(NewSel: Boolean);
     {: Returns whether the item is selected}
-    function GetSelected: boolean;
+    function GetSelected: Boolean;
     {: Returns the currently selected item }
-    function GetSelectedItem: PGUI_Listbox_item;
+    function GetSelectedItem: TGUI_Listbox_item;
 
-      {: Dumps the contents of the Linked list to the console. For debugging
+    {: Dumps the contents of the Linked list to the console. For debugging
       purposes. }
     procedure Dump;
 
-    function GetCount: word;
+    function GetCount: Word;
 
   protected
-    indexno: integer;
+    IndexNo: Integer;
     Caption: string;
-    selected: boolean;
+    Selected: Boolean;
   end;
 
+  { TGUI_Listbox }
   {: Widget that displays a listbox }
-  TGUI_Listbox = object(TGUI_Canvas)
+  TGUI_Listbox = class(TGUI_Canvas)
   public
     {: Listbox constructor }
-    constructor Init_Listbox;
+    constructor Create;
     {: Listbox destructor - will probably never be called }
-    destructor Done_Listbox;
-    {: Actual destructor stuff that is guaranteed to be called}
-    procedure DoDoneStuff; virtual;
+    destructor Destroy; override;
     {: Returns list of items }
-    function GetItems: PGUI_Listbox_Item;
+    function GetItems: TGUI_Listbox_Item;
     {: Renders the widget }
-    procedure Render; virtual;
+    procedure Render; override;
     {: Called when the font changes }
-    procedure ctrl_FontChanged; virtual;
+    procedure ctrl_FontChanged; override;
     {: Called when the control is resized }
-    procedure ctrl_Resize; virtual;
+    procedure ctrl_Resize; override;
     {: Called when the control recieves a keypress }
-    procedure ctrl_KeyDown(KeySym: TSDL_KeySym); virtual;
+    procedure ctrl_KeyDown(KeySym: TSDL_KeySym); override;
     {: Called when the listbox is clicked}
-    procedure MouseDown(X, Y: word; Button: UInt8); virtual;
-      {: Should be overwritten by children. Will be called when the selection
+    procedure MouseDown(X, Y: Word; Button: UInt8); override;
+    {: Should be overwritten by children. Will be called when the selection
       is changed }
-    procedure ctrl_NewSelection(Selection: PGUI_Listbox_Item); virtual;
+    procedure ctrl_NewSelection(Selection: TGUI_Listbox_Item); virtual;
     {: Will be called when the selection is changed }
-    procedure NewSelection(Selection: PGUI_Listbox_Item); virtual;
+    procedure NewSelection(Selection: TGUI_Listbox_Item); virtual;
     {: Returns the currently selected item }
-    function GetSelectedItem: PGUI_Listbox_Item;
+    function GetSelectedItem: TGUI_Listbox_Item;
   protected
-    Items: PGUI_Listbox_Item;
-    ListCount: word;
-    ItemsToShow: word;
-    Scrollbar: PGUI_Scrollbar;
+    Items: TGUI_Listbox_Item;
+    ListCount: Word;
+    ItemsToShow: Word;
+    Scrollbar: TGUI_Scrollbar;
   private
   end;
 
@@ -379,19 +358,19 @@ begin
   else
     CurFillColor := BackColor;
   inherited;
-  DrawText(Caption, Width div 2, (GetHeight - TTF_FontHeight(Font)) div 2,
+  RenderText(GetCaption, Width div 2, (GetHeight - TTF_FontHeight(Font)) div 2,
     Align_Center);
 end;
 
-constructor TGUI_Button.Init_Button;
+constructor TGUI_Button.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetBorderStyle(BS_Single);
 end;
 
-destructor TGUI_Button.Done_Button;
+destructor TGUI_Button.Destroy;
 begin
-  inherited Done_Canvas;
+  inherited Destroy;
 end;
 
 procedure TGUI_Button.ctrl_MouseEnter();
@@ -409,19 +388,20 @@ end;
 //*********************************************************
 //TGUI_Checkbox
 //*********************************************************
-constructor TGUI_Checkbox.Init_Checkbox;
+
+constructor TGUI_CheckBox.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetFillStyle(FS_None);
   ExcGroup := 0;
 end;
 
-destructor TGUI_Checkbox.Done_Checkbox;
+destructor TGUI_CheckBox.Destroy;
 begin
-  inherited Done_Canvas;
+  inherited Destroy;
 end;
 
-procedure TGUI_Checkbox.SetValue(NewValue: boolean);
+procedure TGUI_CheckBox.SetValue(NewValue: Boolean);
 begin
   if Value <> newvalue then
   begin
@@ -433,95 +413,46 @@ begin
   end;
 end;
 
-function TGUI_Checkbox.GetValue: boolean;
+function TGUI_CheckBox.GetValue: Boolean;
 begin
   getvalue := Value;
 end;
 
-procedure TGUI_Checkbox.Render;
+procedure TGUI_CheckBox.Render;
 var
   r: TSDL_Rect;
 begin
-  inherited;
   with r do
   begin
     w := 20;
     h := 20;
-    x := 3;
-    y := 3;
+    x := GetAbsLeft + 3;
+    y := GetAbsTop + 3;
   end;
   if GetMouseEntered then
-  (* SDL2 conv.: Original code, for ref.
-
-    SDL_FillRect(surface, @r, maprgb(GUI_SelectedColor.r, GUI_SelectedColor.g,
-      GUI_SelectedColor.b))
-
-  *)
-  begin
-    fillrect(Renderer, Texture, @r, GUI_SelectedColor);
-  end
+    RenderFilledRect(@r, GUI_SelectedColor)
   else
-  (* SDL2 conv.: Original code, for ref.
-
-    SDL_FillRect(surface, @r, maprgb(backcolor.r, backcolor.g, backcolor.b));
-
-  *)
-  begin
-    (*SDL_SetRenderTarget( Renderer, Texture );
-    SDL_SetRenderDrawColor( Renderer, backcolor.R,
-      backcolor.G, backcolor.B, backcolor.A );
-    SDL_RenderClear( Renderer );
-    SDL_SetRenderTarget( Renderer, nil );*)
-    fillrect(Renderer, Texture, @r, backcolor);
-  end;
-
-
-  (* SDL2 conv.: Original code, for ref.
-
-  drawline(r.x, r.y, r.x+r.w, r.y, surface,CurBordercolor.r, CurBorderColor.g,
-    CurBorderColor.b);
-  drawline(r.x, r.y+r.h, r.x+r.w, r.y+r.h, surface,CurBordercolor.r,
-    CurBorderColor.g, CurBorderColor.b);
-  drawline(r.x+r.w, r.y, r.x+r.w, r.y+r.h, surface,CurBordercolor.r,
-    CurBorderColor.g, CurBorderColor.b);
-  drawline(r.x, r.y, r.x, r.y+r.h, surface,CurBordercolor.r,
-    CurBorderColor.g, CurBorderColor.b);
-
-  *)
-
-  drawline(Renderer, Texture, r.x, r.y, r.x + r.w, r.y, CurBorderColor);
-  drawline(Renderer, Texture, r.x, r.y + r.h, r.x + r.w, r.y + r.h, CurBorderColor);
-  drawline(Renderer, Texture, r.x + r.w, r.y, r.x + r.w, r.y + r.h, CurBorderColor);
-  drawline(Renderer, Texture, r.x, r.y, r.x, r.y + r.h, CurBorderColor);
-
+    RenderFilledRect(@r, backcolor);
+  RenderRect(@r, CurBorderColor);
   with r do
   begin
     w := 11;
     h := 11;
-    x := 8;
-    y := 8;
+    x := GetAbsLeft + 8;
+    y := GetAbsTop + 8;
   end;
-
   if Value then
-  (* SDL2 conv.: Original code, for ref.
-
-     SDL_FillRect(surface, @r, maprgb(forecolor.r, forecolor.g, forecolor.b));
-
-  *)
-  begin
-    fillrect(Renderer, Texture, @r, forecolor);
-  end;
-
-  DrawText(GetPCharCaption, 30, 5, Align_Left);
+    RenderFilledRect(@r, forecolor);
+  RenderText(GetCaption, 30, 5, Align_Left);
 end;
 
-procedure TGUI_Checkbox.ctrl_MouseClick(X, Y: word; Button: UInt8);
+procedure TGUI_CheckBox.ctrl_MouseClick(X, Y: Word; Button: UInt8);
 var
-  Next: PGUI_Element_LL;
-  Data: PGUI_Checkbox;
+  Next: TGUI_Element_LL;
+  Data: TGUI_Checkbox;
 begin
-  if excgroup = 0 then
-    //Do this if its just a checkbox
+  if ExcGroup = 0 then
+  // Do this if its just a checkbox
   begin
     if Value then
     begin
@@ -533,55 +464,54 @@ begin
     end;
   end
   else
-    //But do this if its an option box
+  // But do this if its an option box
   begin
     if not (Value) then
     begin
       SetValue(True);
-      //Traverse siblings to tell relevant siblings to be unselected
-      Next := parent^.getchildren^.Next;
-      while Next <> nil do
+      // Traverse siblings to tell relevant siblings to be unselected
+      Next := Parent.GetChildren.Next;
+      while Assigned(Next) do
       begin
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //I don't know why this typecast works without crashing, but it seems to
-        //It is a danger point in the code I believe
-        Data := PGUI_Checkbox(Next^.Data);
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if Next^.Data <> @self then
-          if Data^.GetExcGroup = ExcGroup then
-            Data^.SetValue(False);
-        Next := Next^.Next;
+        if Next.Data is TGUI_Checkbox then
+        begin
+          Data := Next.Data as TGUI_Checkbox;
+          if Next.Data <> Self then
+            if Data.GetExcGroup = ExcGroup then
+              Data.SetValue(False);
+        end;
+        Next := Next.Next;
       end;
     end;
   end;
 end;
 
-procedure TGUI_Checkbox.ctrl_BoxChecked();
+procedure TGUI_CheckBox.ctrl_BoxChecked();
 begin
   BoxChecked;
 end;
 
-procedure TGUI_Checkbox.ctrl_BoxUnchecked();
+procedure TGUI_CheckBox.ctrl_BoxUnchecked();
 begin
   BoxUnChecked;
 end;
 
-procedure TGUI_Checkbox.BoxChecked();
+procedure TGUI_CheckBox.BoxChecked();
 begin
 
 end;
 
-procedure TGUI_Checkbox.BoxUnchecked();
+procedure TGUI_CheckBox.BoxUnchecked();
 begin
 
 end;
 
-procedure TGUI_Checkbox.SetExcGroup(NewExcGroup: word);
+procedure TGUI_CheckBox.SetExcGroup(NewExcGroup: Word);
 begin
   ExcGroup := NewExcGroup;
 end;
 
-function TGUI_Checkbox.GetExcGroup: word;
+function TGUI_CheckBox.GetExcGroup: Word;
 begin
   GetExcGroup := ExcGroup;
 end;
@@ -591,23 +521,23 @@ end;
 //TGUI_Label
 //*********************************************************
 
-constructor TGUI_Label.Init_Label;
+constructor TGUI_Label.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetFillStyle(FS_None);
   SetSelectable(False);
   SetTextA(Align_Left);
   SetVertA(VAlign_Top);
 end;
 
-destructor TGUI_Label.Done_Label;
+destructor TGUI_Label.Destroy;
 begin
-  inherited Done_Canvas;
+  inherited Destroy;
 end;
 
 procedure TGUI_Label.Render;
 var
-  LeftPoint, TopPoint: word;
+  LeftPoint, TopPoint: Word;
 begin
   case TextA of
     Align_Left:
@@ -625,8 +555,7 @@ begin
     VAlign_Center:
       TopPoint := (GetHeight - TTF_FontHeight(Font)) div 2;
   end;
-
-  drawtext(GetPCharCaption, LeftPoint, TopPoint, TextA);
+  RenderText(GetCaption, LeftPoint, TopPoint, TextA);
 end;
 
 procedure TGUI_Label.SetTextA(NewTextA: tTextAlign);
@@ -652,150 +581,127 @@ end;
 //*********************************************************
 //TGUI_Scrollbar
 //*********************************************************
-constructor TGUI_Scrollbar.Init_ScrollBar;
+
+constructor TGUI_ScrollBar.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetFillStyle(FS_None);
   SetMin(0);
-  SetMax(100); //SetValue(50);
+  SetMax(100); // SetValue(50); [Why this comment?]
 end;
 
-destructor TGUI_Scrollbar.Done_ScrollBar;
+destructor TGUI_ScrollBar.Destroy;
 begin
-  inherited Done_Canvas;
+  inherited Destroy;
 end;
 
-procedure TGUI_Scrollbar.Render;
+procedure TGUI_ScrollBar.Render;
 var
   r: TSDL_Rect;
 begin
-  inherited;
   case GetDir of
     Dir_Horizontal:
     begin
-      (*
-      DrawLine(0, GetHeight div 2, GetWidth-1, GetHeight div 2, Surface,
-        BorderColor.r, BorderColor.g, BorderColor.b);
-      *)
-      drawline(Renderer, Texture, 0, GetHeight div 2, GetWidth - 1,
-        GetHeight div 2, BorderColor);
+      RenderLine(GetAbsLeft, GetAbsTop + GetHeight div 2, GetAbsLeft +
+        GetWidth - 1, GetAbsTop + GetHeight div 2, BorderColor);
       with r do
       begin
         w := GUI_ScrollbarSize;
         h := GUI_ScrollbarSize;
-        x := floor((Value * (Width - w - 2)) / (MaxVal - MinVal));
-        y := (GetHeight - h) div 2;
+        x := GetAbsLeft + floor((Value * (GetWidth - w - 2)) / (MaxVal - MinVal)
+          );
+        y := GetAbsTop + (GetHeight - h) div 2;
       end;
     end;
     Dir_Vertical:
     begin
-      drawline(Renderer, Texture, GetWidth div 2, 0, GetWidth div 2,
-        GetHeight, BorderColor);
+      RenderLine(GetAbsLeft + GetWidth div 2, GetAbsTop, GetAbsLeft +
+        GetWidth div 2, GetAbsTop + GetHeight, BorderColor);
       with r do
       begin
         w := GUI_ScrollbarSize;
         h := GUI_ScrollbarSize;
-        y := floor((Value * (Height - h - 1)) / (MaxVal - MinVal));
-        x := (GetWidth - w) div 2;
+        y := GetAbsTop + floor((Value * (GetHeight - h - 1)) / (MaxVal - MinVal)
+          );
+        x := GetAbsLeft + (GetWidth - w) div 2;
       end;
     end;
   end;
   if GetMouseEntered or Moving then
-      (*
-      SDL_FillRect(surface, @r, maprgb(GUI_SelectedColor.r, GUI_SelectedColor.g,
-      GUI_SelectedColor.b))
-      *)
-    fillrect(Renderer, Texture, @r, GUI_SelectedColor)
+    RenderFilledRect(@r, GUI_SelectedColor)
   else
-      (*
-      SDL_FillRect(surface, @r, maprgb(backcolor.r, backcolor.g, backcolor.b));
-      *)
-    fillrect(Renderer, Texture, @r, GUI_SelectedColor);
-    (*
-    drawline(r.x, r.y, r.x+r.w, r.y, surface,CurBordercolor.r, CurBorderColor.g,
-      CurBorderColor.b);
-    drawline(r.x, r.y+r.h, r.x+r.w, r.y+r.h, surface,CurBordercolor.r,
-      CurBorderColor.g, CurBorderColor.b);
-    drawline(r.x+r.w, r.y, r.x+r.w, r.y+r.h, surface,CurBordercolor.r,
-      CurBorderColor.g, CurBorderColor.b);
-    drawline(r.x, r.y, r.x, r.y+r.h, surface,CurBordercolor.r,
-      CurBorderColor.g, CurBorderColor.b);
-    *)
-  drawline(Renderer, Texture, r.x, r.y, r.x + r.w, r.y, CurBorderColor);
-  drawline(Renderer, Texture, r.x, r.y + r.h, r.x + r.w, r.y + r.h, CurBorderColor);
-  drawline(Renderer, Texture, r.x + r.w, r.y, r.x + r.w, r.y + r.h, CurBorderColor);
-  drawline(Renderer, Texture, r.x, r.y, r.x, r.y + r.h, CurBorderColor);
-
+    RenderFilledRect(@r, BackColor);
+  RenderRect(@r, CurBorderColor);
 end;
 
-procedure TGUI_Scrollbar.SetMin(NewMinVal: integer);
+procedure TGUI_ScrollBar.SetMin(NewMinVal: Integer);
 begin
   MinVal := NewMinVal;
 end;
 
-function TGUI_Scrollbar.GetMin: integer;
+function TGUI_ScrollBar.GetMin: Integer;
 begin
   GetMin := MinVal;
 end;
 
-procedure TGUI_Scrollbar.SetMax(NewMaxVal: integer);
+procedure TGUI_ScrollBar.SetMax(NewMaxVal: Integer);
 begin
   MaxVal := NewMaxVal;
 end;
 
-function TGUI_Scrollbar.GetMax: integer;
+function TGUI_ScrollBar.GetMax: Integer;
 begin
   GetMax := MaxVal;
 end;
 
-procedure TGUI_Scrollbar.SetValue(NewValue: integer);
+procedure TGUI_ScrollBar.SetValue(NewValue: Integer);
 begin
   Value := NewValue;
-  CTRL_ValueChanged(NewValue);
+  ctrl_ValueChanged(NewValue);
 end;
 
-function TGUI_Scrollbar.GetValue: integer;
+function TGUI_ScrollBar.GetValue: Integer;
 begin
-  GetValue := Value;
+  Result := Value;
 end;
 
-procedure TGUI_Scrollbar.SetDir(NewDir: TDir);
+procedure TGUI_ScrollBar.SetDir(NewDir: TDirection);
 begin
   Dir := NewDir;
 end;
 
-function TGUI_Scrollbar.GetDir: TDir;
+function TGUI_ScrollBar.GetDir: TDirection;
 begin
   GetDir := Dir;
 end;
 
-procedure TGUI_Scrollbar.SetAutoAlign(NewValue: boolean);
+procedure TGUI_ScrollBar.SetAutoAlign(NewValue: Boolean);
 begin
   Autoalign := NewValue;
   if AutoAlign then
     if Parent <> nil then
-      ParentSizeCallback(Parent^.GetWidth, Parent^.GetHeight);
+      ParentSizeCallback(Parent.GetWidth, Parent.GetHeight);
 end;
 
-function TGUI_Scrollbar.GetAutoAlign: boolean;
+function TGUI_ScrollBar.GetAutoAlign: Boolean;
 begin
   GetAutoAlign := AutoAlign;
 end;
 
-procedure TGUI_Scrollbar.SetAutoAlignBoth(NewValue: boolean);
+procedure TGUI_ScrollBar.SetAutoAlignBoth(NewValue: Boolean);
 begin
   AutoAlignBoth := NewValue;
   if AutoAlignBoth then
     if Parent <> nil then
-      ParentSizeCallback(Parent^.GetWidth, Parent^.GetHeight);
+      ParentSizeCallback(Parent.GetWidth, Parent.GetHeight);
 end;
 
-function TGUI_Scrollbar.GetAutoAlignBoth: boolean;
+function TGUI_ScrollBar.GetAutoAlignBoth: Boolean;
 begin
   GetAutoAlignBoth := AutoAlignBoth;
 end;
 
-procedure TGUI_Scrollbar.ParentSizeCallback(NewW, NewH: word);
+procedure TGUI_ScrollBar.ParentSizeCallback(NewW, NewH: Word);
 begin
   if AutoAlign then
   begin
@@ -818,9 +724,9 @@ begin
   end;
 end;
 
-procedure TGUI_Scrollbar.ctrl_MouseDown(X, Y: word; Button: UInt8);
+procedure TGUI_ScrollBar.ctrl_MouseDown(X, Y: Word; Button: UInt8);
 var
-  NewVal: integer;
+  NewVal: Integer;
 begin
   inherited;
   if Button = 1 then
@@ -844,54 +750,53 @@ begin
   end;
 end;
 
-procedure TGUI_Scrollbar.ctrl_MouseUp(X, Y: word; Button: UInt8);
+procedure TGUI_ScrollBar.ctrl_MouseUp(X, Y: Word; Button: UInt8);
 begin
   inherited;
   if Button = 1 then
     Moving := False;
 end;
 
-procedure TGUI_Scrollbar.ctrl_SDLPassthrough(e: PSDL_Event);
+procedure TGUI_ScrollBar.ctrl_SDLPassthrough(e: PSDL_Event);
 var
-  NewVal, X, Y: integer;
+  NewVal, X, Y: Integer;
 begin
   inherited;
   case e^.type_ of
     SDL_MOUSEBUTTONUP:
     begin
-      if moving then
+      if Moving then
         if e^.button.button = 1 then
-          moving := False;
+          Moving := False;
     end;
     SDL_MOUSEMOTION:
       if Moving then
       begin
-        X := e^.motion.x - initx;
-        y := e^.motion.y - inity;
+        X := e^.motion.x - InitX;
+        y := e^.motion.y - InitY;
         case Dir of
           Dir_Horizontal:
           begin
-            NewVal := (X * (MaxVal - MinVal)) div (Width - 6);
+            NewVal := (X * (MaxVal - MinVal)) div (GetWidth - 6);
           end;
           Dir_Vertical:
           begin
-            NewVal := (Y * (MaxVal - MinVal)) div (Height - 6);
+            NewVal := (Y * (MaxVal - MinVal)) div (GetHeight - 6);
           end;
         end;
         NewVal := Max(MinVal, NewVal);
         NewVal := Min(MaxVal, NewVal);
         SetValue(NewVal);
-
       end;
   end;
 end;
 
-procedure TGUI_Scrollbar.ctrl_ValueChanged(NewValue: integer);
+procedure TGUI_ScrollBar.ctrl_ValueChanged(NewValue: Integer);
 begin
   ValueChanged(NewValue);
 end;
 
-procedure TGUI_Scrollbar.ValueChanged(NewValue: integer);
+procedure TGUI_ScrollBar.ValueChanged(NewValue: Integer);
 begin
 
 end;
@@ -899,58 +804,52 @@ end;
 //*********************************************************
 //TGUI_TextBox
 //*********************************************************
-constructor TGUI_TextBox.Init_TextBox;
+
+constructor TGUI_TextBox.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetBackColor(GUI_DefaultTextBackColor);
   SetBorderStyle(BS_Single);
   Cursor := 0;
-  Text := nil;
   StrText := '';
   IsSelected := False;
 end;
 
-destructor TGUI_TextBox.Done_TextBox;
+destructor TGUI_TextBox.Destroy;
 begin
-
+  inherited Destroy;
 end;
 
 procedure TGUI_TextBox.Render;
 var
-  TextToRender: PChar;
-  ActiveToRender: PChar;
+  TextToRender: string;
+  ActiveToRender: string;
 begin
   inherited;
-  ActiveToRender := nil;
+  ActiveToRender := '';
   begin
     if CurSelected then
     begin
-      ActiveToRender := StrAlloc(Length(GetText) + 2);
-      StrPCopy(ActiveToRender, LeftStr(GetText, Cursor) + '^' +
-        RightStr(GetText, Length(GetText) - Cursor));
-      TextToRender := ActiveToRender;
+      ActiveToRender := GetText;
+      ActiveToRender := LeftStr(GetText, Cursor) + '^' + RightStr(GetText,
+        Length(GetText) - Cursor);
+      TextToRender := ActiveToRender;    // optimise block? (re-str.)
     end
     else
     if GetText = '' then
-      TextToRender := GetPCharCaption
+      TextToRender := GetCaption
     else
-      TextToRender := GetPCharText;
+      TextToRender := GetText;
   end;
-  DrawText(TextToRender, 5, (GetHeight - TTF_FontHeight(Font)) div 2,
+  RenderText(TextToRender, 5, (GetHeight - TTF_FontHeight(Font)) div 2,
     Align_Left);
-
-  if ActiveToRender <> nil then
-    StrDispose(ActiveToRender);
-
 end;
 
 procedure TGUI_TextBox.ctrl_Selected;
 begin
   CurFillColor := GUI_SelectedColor;
   IsSelected := True;
-  Cursor := Length(Text);
-
-  (* SDL2. conv.: Start TextInput mode *)
+  Cursor := Length(StrText);
   SDL_StartTextInput;
 end;
 
@@ -958,15 +857,12 @@ procedure TGUI_TextBox.ctrl_LostSelected;
 begin
   CurFillColor := BackColor;
   IsSelected := False;
-
-  (* SDL2. conv.: Stop TextInput mode *)
   SDL_StopTextInput;
 end;
 
 procedure TGUI_TextBox.ctrl_KeyDown(KeySym: TSDL_KeySym);
 begin
   inherited;
-  (* original code *)
 
   case KeySym.Sym of
     SDLK_LEFT:
@@ -993,6 +889,11 @@ begin
     begin
       CursorEnd;
     end;
+    { TODO : new feat.: exit on ENTER; doesn't work as expected, why? }
+    //SDLK_RETURN:
+    //begin
+    //  ctrl_LostSelected;
+    //end;
   end;
 end;
 
@@ -1028,32 +929,17 @@ begin
 
 end;
 
-procedure TGUI_Textbox.DoDoneStuff;
+procedure TGUI_TextBox.SetText(InText: string);
 begin
-  inherited;
-  if Text <> nil then
-    strdispose(Text);
+  StrText := InText;
 end;
 
-procedure TGUI_Textbox.SetText(InText: string);
+function TGUI_TextBox.GetText: string;
 begin
-  if Text <> nil then
-    strdispose(Text);
-  Text := StrAlloc(Length(InText) + 1);
-  StrPCopy(Text, InText);
+  Result := StrText;
 end;
 
-function TGUI_Textbox.GetText: string;
-begin
-  GetText := StrPas(Text);
-end;
-
-function TGUI_Textbox.GetPCharText: PChar;
-begin
-  GetPCharText := Text;
-end;
-
-procedure TGUI_Textbox.MoveCursor(Amt: integer);
+procedure TGUI_TextBox.MoveCursor(Amt: Integer);
 begin
   Cursor := Cursor + amt;
   if cursor < 0 then
@@ -1062,52 +948,37 @@ begin
     cursor := length(GetText);
 end;
 
-procedure TGUI_Textbox.CursorInsert(Character: TSDLTextInputArray);
-var
-  NewText: PChar;
+procedure TGUI_TextBox.CursorInsert(Character: TSDLTextInputArray);
 begin
-  NewText := StrAlloc(Length(GetText) + Length(Character) + 2);
-  StrPCopy(NewText, LeftStr(GetText, Cursor) + Character +
-    RightStr(GetText, Length(GetText) - Cursor));
-  StrDispose(Text);
-  Text := NewText;
+  StrText := LeftStr(GetText, Cursor) + Character + RightStr(GetText, Length(
+    GetText) - Cursor);
 end;
 
-procedure TGUI_Textbox.CursorBackspace;
-var
-  NewText: PChar;
+procedure TGUI_TextBox.CursorBackspace;
 begin
   if cursor <> 0 then
   begin
-    NewText := StrAlloc(Length(GetText));
-    StrPCopy(NewText, LeftStr(GetText, Cursor - 1) +
-      RightStr(GetText, Length(GetText) - Cursor));
-    StrDispose(Text);
-    Text := NewText;
+    StrText := LeftStr(GetText, Cursor - 1) + RightStr(GetText, Length(
+      GetText) - Cursor);
     MoveCursor(-1);
   end;
 end;
 
-procedure TGUI_Textbox.CursorDelete;
-var
-  NewText: PChar;
+procedure TGUI_TextBox.CursorDelete;
 begin
   if cursor <> length(GetText) then
   begin
-    NewText := StrAlloc(Length(GetText));
-    StrPCopy(NewText, LeftStr(GetText, Cursor) +
-      RightStr(GetText, Length(GetText) - Cursor - 1));
-    StrDispose(Text);
-    Text := NewText;
+    StrText := LeftStr(GetText, Cursor) + RightStr(GetText, Length(GetText) -
+      Cursor - 1);
   end;
 end;
 
-procedure TGUI_Textbox.CursorHome;
+procedure TGUI_TextBox.CursorHome;
 begin
   Cursor := 0;
 end;
 
-procedure TGUI_Textbox.CursorEnd;
+procedure TGUI_TextBox.CursorEnd;
 begin
   Cursor := Length(GetText);
 end;
@@ -1117,16 +988,28 @@ end;
 //TGUI_Surface
 //*********************************************************
 
-constructor TGUI_Surface.Init_Surface;
+//constructor TGUI_Surface.Init_Surface;
+//begin
+//  inherited Init_Canvas;
+//  SetFillStyle(FS_None);
+//  SetFullSrc(True);
+//end;
+
+constructor TGUI_Surface.Create;
 begin
-  inherited Init_Canvas;
+  inherited Create;
   SetFillStyle(FS_None);
   SetFullSrc(True);
 end;
 
-destructor TGUI_Surface.Done_Surface;
+//destructor TGUI_Surface.Done_Surface;
+//begin
+//  inherited Done_Canvas;
+//end;
+
+destructor TGUI_Surface.Destroy;
 begin
-  inherited Done_Canvas;
+  inherited Destroy;
 end;
 
 procedure TGUI_Surface.SetSource(NewSrcSurface: pSDL_Surface);
@@ -1149,12 +1032,12 @@ begin
   GetSrcRect := SrcRect;
 end;
 
-procedure TGUI_Surface.SetFullSrc(NewFullSrc: boolean);
+procedure TGUI_Surface.SetFullSrc(NewFullSrc: Boolean);
 begin
   FullSrc := NewFullSrc;
 end;
 
-function TGUI_Surface.GetFullSrc: boolean;
+function TGUI_Surface.GetFullSrc: Boolean;
 begin
   GetFullSrc := FullSrc;
 end;
@@ -1163,52 +1046,52 @@ procedure TGUI_Surface.Render;
 var
   tempTex: PSDL_Texture;
 begin
-  inherited;
-  if SrcSurface <> nil then
-  begin
-    tempTex := SDL_CreateTextureFromSurface(Renderer, SrcSurface);
-    SDL_SetRenderTarget(Renderer, Texture);
-
-    if FullSrc then
-      //SDL_BlitSurface(SrcSurface, nil, Surface, nil)
-      SDL_RenderCopy(Renderer, tempTex, nil, nil)
-    else
-      //SDL_BlitSurface(SrcSurface, @SrcRect, Surface, nil);
-      SDL_RenderCopy(Renderer, tempTex, @SrcRect, nil);
-
-    SDL_SetRenderTarget(Renderer, nil);
-    SDL_DestroyTexture(tempTex);
-  end;
+  //inherited Render;
+  //if SrcSurface <> nil then
+  //begin
+  //  tempTex := SDL_CreateTextureFromSurface(Renderer, SrcSurface);
+  //  SDL_SetRenderTarget(Renderer, Texture);
+  //
+  //  if FullSrc then
+  //    //SDL_BlitSurface(SrcSurface, nil, Surface, nil)
+  //    SDL_RenderCopy(Renderer, tempTex, nil, nil)
+  //  else
+  //    //SDL_BlitSurface(SrcSurface, @SrcRect, Surface, nil);
+  //    SDL_RenderCopy(Renderer, tempTex, @SrcRect, nil);
+  //
+  //  SDL_SetRenderTarget(Renderer, nil);
+  //  SDL_DestroyTexture(tempTex);
+  //end;
 end;
 
 //*********************************************************
 //TGUI_Listbox_Item
 //*********************************************************
 
-function TGUI_Listbox_Item.Last: PGUI_Listbox_Item;
+function TGUI_Listbox_Item.Last: TGUI_Listbox_Item;
 begin
   if Next <> nil then
-    Last := Next^.Last
+    Last := Next.Last
   else
-    Last := @self;
+    Last := Self;
 end;
 
-function TGUI_Listbox_Item.First: PGUI_Listbox_Item;
+function TGUI_Listbox_Item.First: TGUI_Listbox_Item;
 begin
   if Prev <> nil then
-    First := Next^.Prev
+    First := Next.Prev
   else
-    First := @self;
+    First := Self;
 end;
 
-function TGUI_Listbox_Item.GetSelectedItem: PGUI_Listbox_item;
+function TGUI_Listbox_Item.GetSelectedItem: TGUI_Listbox_item;
 var
-  nextitem: PGUI_Listbox_item;
+  NextItem: TGUI_Listbox_item;
 begin
-  nextitem := First;
-  while (nextitem <> nil) and not (nextitem^.GetSelected) do
-    nextitem := nextitem^.Next;
-  GetSelectedItem := nextitem;
+  NextItem := First;
+  while (NextItem <> nil) and not (NextItem.GetSelected) do
+    NextItem := NextItem.Next;
+  GetSelectedItem := NextItem;
 end;
 
 function TGUI_Listbox_Item.GetStr: string;
@@ -1221,26 +1104,26 @@ begin
   Caption := NewString;
 end;
 
-function TGUI_Listbox_Item.GetIndex: integer;
+function TGUI_Listbox_Item.GetIndex: Integer;
 begin
-  getindex := indexno;
+  GetIndex := IndexNo;
 end;
 
-procedure TGUI_Listbox_Item.SetIndex(NewIndex: integer);
+procedure TGUI_Listbox_Item.SetIndex(NewIndex: Integer);
 begin
-  indexno := newindex;
+  IndexNo := NewIndex;
 end;
 
-procedure TGUI_Listbox_Item.AddItem(NewStr: string; NewIndex: integer);
+procedure TGUI_Listbox_Item.AddItem(NewStr: string; NewIndex: Integer);
 var
-  NewPrev: PGUI_Listbox_Item;
+  NewPrev: TGUI_Listbox_Item;
 begin
   NewPrev := Last;
-  new(Last^.Next, init);
-  Last^.Next := nil;
-  Last^.Prev := NewPrev;
-  Last^.SetIndex(NewIndex);
-  Last^.SetStr(NewStr);
+  Last.Next := TGUI_Listbox_Item.Create;
+  Last.Next := nil;
+  Last.Prev := NewPrev;
+  Last.SetIndex(NewIndex);
+  Last.SetStr(NewStr);
 end;
 
 procedure TGUI_Listbox_Item.Dump;
@@ -1249,30 +1132,31 @@ begin
   if Next <> nil then
   begin
     Write('->');
-    Next^.dump;
+    Next.dump;
   end
   else
-    writeln;
+    Writeln;
 end;
 
-constructor TGUI_Listbox_Item.init;
+constructor TGUI_Listbox_Item.Create;
 begin
-  indexno := 0;
+  IndexNo := 0;
 end;
 
-destructor TGUI_Listbox_Item.done;
+destructor TGUI_Listbox_Item.Destroy;
 begin
-  if Next <> nil then
-    dispose(Next, done);
+  if Assigned(Next) then
+    FreeAndNil(Next);
+  inherited Destroy;
 end;
 
-function TGUI_Listbox_Item.ReturnItem(ItemIndex: integer): PGUI_listbox_item;
+function TGUI_Listbox_Item.ReturnItem(ItemIndex: Integer): TGUI_listbox_item;
 begin
-  if indexno = ItemIndex then
-    ReturnItem := @Self
+  if IndexNo = ItemIndex then
+    ReturnItem := Self
   else
   if Next <> nil then
-    ReturnItem := Next^.ReturnItem(ItemIndex)
+    ReturnItem := Next.ReturnItem(ItemIndex)
   else
     ReturnItem := nil;
 end;
@@ -1281,45 +1165,45 @@ procedure TGUI_Listbox_Item.PushToLast;
 begin
   if Next <> nil then
   begin
-    Prev^.Next := Next;
-    Next^.Prev := Prev;
+    Prev.Next := Next;
+    Next.Prev := Prev;
     Prev := Last;
-    Prev^.Next := @self;
+    Prev.Next := Self;
     Next := nil;
   end;
 end;
 
-function TGUI_Listbox_Item.GetCount: word;
+function TGUI_Listbox_Item.GetCount: Word;
 begin
-  if Next <> nil then
-    GetCount := Next^.GetCount + 1
+  if Assigned(Next) then
+    GetCount := Next.GetCount + 1
   else
     GetCount := 1;
 end;
 
-procedure TGUI_Listbox_Item.SetSelected(NewSel: boolean);
+procedure TGUI_Listbox_Item.SetSelected(NewSel: Boolean);
 var
-  nextitem: PGUI_Listbox_Item;
+  NextItem: TGUI_Listbox_Item;
 begin
   Selected := NewSel;
   if NewSel then
   begin
-    nextitem := Next;
-    while nextitem <> nil do
+    NextItem := Next;
+    while NextItem <> nil do
     begin
-      nextitem^.SetSelected(False);
-      nextitem := nextitem^.Next;
+      NextItem.SetSelected(False);
+      NextItem := NextItem.Next;
     end;
-    nextitem := Prev;
-    while nextitem <> nil do
+    NextItem := Prev;
+    while NextItem <> nil do
     begin
-      nextitem^.SetSelected(False);
-      nextitem := nextitem^.Prev;
+      NextItem.SetSelected(False);
+      NextItem := NextItem.Prev;
     end;
   end;
 end;
 
-function TGUI_Listbox_Item.GetSelected: boolean;
+function TGUI_Listbox_Item.GetSelected: Boolean;
 begin
   GetSelected := Selected;
 end;
@@ -1328,69 +1212,38 @@ end;
 //TGUI_Listbox
 //*********************************************************
 
-{type
-  PListbox_Scrollbar = ^TListbox_Scrollbar;
-  TListbox_Scrollbar = object(TGUI_Scrollbar)
-    public
-      constructor Init_Listbox_scrollbar;
-      destructor Done_Listbox_scrollbar;
-      procedure ValueChanged(NewValue: Integer); virtual;
-    protected
-    private
-    end;
-
-constructor TListbox_Scrollbar.Init_Listbox_scrollbar;
+constructor TGUI_Listbox.Create;
 begin
-
-  end;
-
-destructor TListbox_Scrollbar.Done_Listbox_scrollbar;
-begin
-
-  end;
-
-procedure TListbox_Scrollbar.ValueChanged(NewValue: Integer);
-begin
-
-  end; }
-
-constructor TGUI_Listbox.Init_Listbox;
-begin
-  inherited Init_Canvas;
+  inherited Create;
   SetBorderStyle(BS_Single);
   SetSelectable(True);
-  New(Items, Init);
-  Items^.nullfirst := True;
-  New(Scrollbar, Init_Scrollbar);
-  with scrollbar^ do
+  Items := TGUI_Listbox_Item.Create;
+  Items.NullFirst := True;
+  Scrollbar := TGUI_Scrollbar.Create;
+  with Scrollbar do
   begin
-    setmin(0);
-    setdir(DIR_VERTICAL);
-    setautoalign(True);
+    SetMin(0);
+    SetDir(DIR_VERTICAL);
+    SetAutoAlign(True);
   end;
   AddChild(Scrollbar);
 end;
 
-destructor TGUI_Listbox.Done_Listbox;
+destructor TGUI_Listbox.Destroy;
 begin
-  inherited Done_Canvas;
+  FreeAndNil(Items);
+  inherited Destroy;
 end;
 
-procedure TGUI_Listbox.DoDoneStuff;
+function TGUI_Listbox.GetItems: TGUI_Listbox_Item;
 begin
-  inherited;
-  Dispose(Items, Done);
-end;
-
-function TGUI_Listbox.GetItems: PGUI_Listbox_Item;
-begin
-  GetItems := Items;
+  Result := Items;
 end;
 
 procedure TGUI_Listbox.ctrl_FontChanged;
 begin
   inherited;
-  if fontlineskip <> 0 then
+  if FontLineSkip <> 0 then
   begin
     ItemsToShow := (GetHeight div FontLineSkip);
   end
@@ -1401,7 +1254,7 @@ end;
 procedure TGUI_Listbox.ctrl_Resize;
 begin
   inherited;
-  if fontlineskip <> 0 then
+  if FontLineSkip <> 0 then
   begin
     ItemsToShow := (GetHeight div FontLineSkip);
   end
@@ -1411,157 +1264,130 @@ end;
 
 procedure TGUI_Listbox.Render;
 var
-  NewCount: word;
-  i: word;
-  Next: PGUI_Listbox_Item;
-  rect: TSDL_Rect;
+  NewCount: Word;
+  i: Word;
+  Next: TGUI_Listbox_Item;
+  Rect: TSDL_Rect;
 begin
   if CurSelected then
     CurBorderColor := GUI_DefaultForeColor
   else
     CurBorderColor := BorderColor;
   inherited;
-  NewCount := items^.GetCount;
-  //writeln(ItemsToShow, ' ', ListCount, ' ', NewCount);
+  NewCount := Items.GetCount;
   if NewCount <> ListCount then
   begin
     ListCount := NewCount;
-    if itemstoshow <= newcount then
+    if ItemsToShow <= NewCount then
     begin
-      Scrollbar^.Setmax(NewCount - ItemsToShow - 1);
-      Scrollbar^.SetVisible(True);
+      Scrollbar.Setmax(NewCount - ItemsToShow - 1);
+      Scrollbar.SetVisible(True);
     end
     else
     begin
-      Scrollbar^.SetVisible(False);
+      Scrollbar.SetVisible(False);
     end;
   end;
   i := 0;
-  Next := GetItems^.Next;
-  while (i < Scrollbar^.GetValue) and (Next <> nil) do
+  Next := GetItems.Next;
+  while (i < Scrollbar.GetValue) and (Next <> nil) do
   begin
-    Next := Next^.Next;
+    Next := Next.Next;
     Inc(i);
   end;
   i := 0;
   while (i < ItemsToShow) and (Next <> nil) do
   begin
-    if Next^.GetSelected then
+    if Next.GetSelected then
     begin
-      (* SDL2 conv.: necesary?
-      if SDL_MUSTLOCK(surface) then
+      with Rect do
       begin
-        SDL_LockSurface(surface);
-      end;
-      *)
-
-      with rect do
-      begin
-        x := 1;
+        x := GetAbsLeft + 1;
         w := getwidth - 2;
-        y := i * fontlineskip + 1;
-        h := fontlineskip - 2;
+        y := GetAbsTop + i * FontLineSkip + 1;
+        h := FontLineSkip - 2;
       end;
       if CurSelected then
-      begin
-        (* SDL2 conv.
-        SDL_FillRect(Surface, @Rect, MapRGBA(GUI_SelectedColor.R,
-          GUI_SelectedColor.G, GUI_SelectedColor.B, GUI_SelectedColor.A));
-        *)
-        fillrect(Renderer, Texture, @Rect, GUI_SelectedColor);
-      end
+        RenderFilledRect(@Rect, GUI_SelectedColor)
       else
-      begin
-        (* SDL2 conv.
-        SDL_FillRect(Surface, @Rect, MapRGBA(GUI_DefaultTextBackColor.R,
-          GUI_DefaultTextBackColor.G, GUI_DefaultTextBackColor.B,
-          GUI_DefaultTextBackColor.A));
-        *)
-        fillrect(Renderer, Texture, @Rect, GUI_DefaultTextBackColor);
-      end;
-      (* SDL2 conv.
-      if SDL_MUSTLOCK(surface) then
-      begin
-        SDL_UnlockSurface(surface);
-      end;
-      *)
+        RenderFilledRect(@Rect, GUI_DefaultTextBackColor);
     end;
-    DrawText(Next^.GetStr, 3, i * FontLineSkip, Align_Left);
-    Next := Next^.Next;
+    RenderText(Next.Caption, 3, i * FontLineSkip, Align_Left);
+    Next := Next.Next;
     Inc(i);
   end;
 end;
 
 procedure TGUI_Listbox.ctrl_KeyDown(KeySym: TSDL_KeySym);
 var
-  CurItem: PGUI_Listbox_Item;
+  CurItem: TGUI_Listbox_Item;
 begin
-  CurItem := GetItems^.GetSelectedItem;
+  CurItem := GetItems.GetSelectedItem;
   case KeySym.Sym of
     SDLK_UP:
     begin
-      if CurItem^.Prev <> nil then
+      if CurItem.Prev <> nil then
       begin
-        if not CurItem^.Prev^.NullFirst then
+        if not CurItem.Prev.NullFirst then
         begin
-          CurItem^.Prev^.SetSelected(True);
-          ctrl_NewSelection(CurItem^.Prev);
+          CurItem.Prev.SetSelected(True);
+          ctrl_NewSelection(CurItem.Prev);
         end;
       end;
     end;
     SDLK_DOWN:
     begin
-      if CurItem^.Next <> nil then
-        CurItem^.Next^.SetSelected(True);
-      ctrl_NewSelection(CurItem^.Next);
+      if CurItem.Next <> nil then
+        CurItem.Next.SetSelected(True);
+      ctrl_NewSelection(CurItem.Next);
     end;
   end;
 end;
 
-procedure TGUI_Listbox.MouseDown(X, Y: word; Button: UInt8);
+procedure TGUI_Listbox.MouseDown(X, Y: Word; Button: UInt8);
 var
-  itemno: word;
-  i: integer;
-  Next: PGUI_Listbox_Item;
+  ItemNo: Word;
+  i: Integer;
+  Next: TGUI_Listbox_Item;
 begin
   inherited;
-  itemno := y div FontLineSkip;
-  if button = 1 then
+  ItemNo := y div FontLineSkip;
+  if Button = 1 then
   begin
     i := 0;
-    Next := GetItems^.Next;
-    while (i < Scrollbar^.GetValue) and (Next <> nil) do
+    Next := GetItems.Next;
+    while (i < Scrollbar.GetValue) and (Next <> nil) do
     begin
-      Next := Next^.Next;
+      Next := Next.Next;
       Inc(i);
     end;
     i := 0;
     while (i < ItemNo) and (Next <> nil) do
     begin
-      Next := Next^.Next;
+      Next := Next.Next;
       Inc(i);
     end;
   end;
   if Next <> nil then
   begin
-    Next^.setselected(True);
+    Next.setselected(True);
     ctrl_NewSelection(Next);
   end;
 end;
 
-procedure TGUI_Listbox.ctrl_NewSelection(Selection: PGUI_Listbox_Item);
+procedure TGUI_Listbox.ctrl_NewSelection(Selection: TGUI_Listbox_Item);
 begin
   NewSelection(Selection);
 end;
 
-procedure TGUI_Listbox.NewSelection(Selection: PGUI_Listbox_Item);
+procedure TGUI_Listbox.NewSelection(Selection: TGUI_Listbox_Item);
 begin
 
 end;
 
-function TGUI_Listbox.GetSelectedItem: PGUI_Listbox_Item;
+function TGUI_Listbox.GetSelectedItem: TGUI_Listbox_Item;
 begin
-  GetSelectedItem := GetItems^.GetSelectedItem;
+  GetSelectedItem := GetItems.GetSelectedItem;
 end;
 
 begin

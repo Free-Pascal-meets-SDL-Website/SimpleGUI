@@ -51,11 +51,11 @@ interface
 uses Math, SDL2, SG_GuiLib_Base;
 
 function calcdistance(x1, y1, x2, y2: extended): extended;
-procedure drawpixel(x, y: word; screen: PSDL_Surface; r, g, b: UInt8); inline;
-procedure drawpixel(x, y: word; screen: PSDL_Surface; r, g, b, a: UInt16); inline;
-procedure drawalphapixel(x, y: word; screen: PSDL_Surface; r, g, b: UInt8;
+procedure drawpixel(x, y: Word; screen: PSDL_Surface; r, g, b: UInt8); inline;
+procedure drawpixel(x, y: Word; screen: PSDL_Surface; r, g, b, a: UInt16); inline;
+procedure drawalphapixel(x, y: Word; screen: PSDL_Surface; r, g, b: UInt8;
   a: extended); inline;
-procedure drawline(x0, y0, x1, y1: word; screen: PSDL_Surface; r, g, b: UInt16);
+procedure drawline(x0, y0, x1, y1: Word; screen: PSDL_Surface; r, g, b: UInt16);
   inline; overload;
 
 (*
@@ -63,10 +63,10 @@ procedure drawline(x0, y0, x1, y1: word; screen: PSDL_Surface; r, g, b: UInt16);
 *)
 
 procedure fillrect(renderer: PSDL_Renderer; targetTex: PSDL_Texture;
-  rect: PSDL_Rect; color: tRGBA); inline;
+  rect: PSDL_Rect; color: tRGBA); inline;                 // obsolete
 
 procedure drawline(renderer: PSDL_Renderer; targetTex: PSDL_Texture;
-  x0, y0, x1, y1: word; color: tRGBA); inline; overload;
+  x0, y0, x1, y1: Word; color: tRGBA); inline; overload;  // obsolete
 
 implementation
 
@@ -75,7 +75,7 @@ begin
   calcdistance := sqrt(sqr(max(x1, x2) - min(x1, x2)) + sqr(max(y1, y2) - min(y1, y2)));
 end;
 
-procedure drawpixel(x, y: word; screen: PSDL_Surface; r, g, b: UInt8); inline;
+procedure drawpixel(x, y: Word; screen: PSDL_Surface; r, g, b: UInt8); inline;
 var
   target: PUint32;
 begin
@@ -86,7 +86,7 @@ begin
   end;
 end;
 
-procedure drawpixel(x, y: word; screen: PSDL_Surface; r, g, b, a: UInt16); inline;
+procedure drawpixel(x, y: Word; screen: PSDL_Surface; r, g, b, a: UInt16); inline;
 var
   target: PUint32;
 begin
@@ -97,7 +97,7 @@ begin
   end;
 end;
 
-procedure drawalphapixel(x, y: word; screen: PSDL_Surface; r, g, b: UInt8;
+procedure drawalphapixel(x, y: Word; screen: PSDL_Surface; r, g, b: UInt8;
   a: extended); inline;
 var
   target: PUint32;
@@ -120,12 +120,12 @@ end;
 
 
 //Based on http://freespace.virgin.net/hugo.elias/graphics/x_wuline.htm
-procedure drawline(x0, y0, x1, y1: word; screen: PSDL_Surface; r, g, b: UInt16);
+procedure drawline(x0, y0, x1, y1: Word; screen: PSDL_Surface; r, g, b: UInt16);
 var
   grad, xd, yd, xgap, xend, yend, xf, yf, brightness1, brightness2: extended;
 
-  xtemp, ytemp, ix1, ix2, iy1, iy2: integer;
-  shallow: boolean;
+  xtemp, ytemp, ix1, ix2, iy1, iy2: Integer;
+  shallow: Boolean;
 
 begin
   //Draw endpoints
@@ -232,12 +232,43 @@ begin
     end;
 end;
 
+{
+  SDL2 re-strct.: new functions and procedure for better performance
+}
+
+//function MakeRect(ax, ay, aw, ah: Word): PSDL_Rect;
+//const
+//  ARect: TSDL_Rect = (x: 0; y: 0; w: 0; h: 0);
+//begin
+//  with ARect do
+//  begin
+//    x := ax;
+//    y := ay;
+//    w := aw;
+//    h := ah;
+//  end;
+//  Result := @ARect;
+//end;
+
+//procedure RenderFilledRect(renderer: PSDL_Renderer; rect: PSDL_Rect; color: tRGBA);
+//begin
+//  SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+//  SDL_RenderFillRect(renderer, rect);
+//end;
+//
+//procedure RenderLine(renderer: PSDL_Renderer; x0, y0, x1, y1: Word;
+//  color: tRGBA);
+//begin
+//  SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+//  SDL_RenderDrawLine(renderer, x0, y0, x1, y1);
+//end;
+
 (*
   SDL2 conv.: implemenetation of new and overridden procedures
 *)
 
 procedure drawline(renderer: PSDL_Renderer; targetTex: PSDL_Texture;
-  x0, y0, x1, y1: word; color: tRGBA);
+  x0, y0, x1, y1: Word; color: tRGBA);
 begin
   SDL_SetRenderTarget(renderer, targetTex);
   SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);

@@ -1,71 +1,46 @@
 program GUITest_SDL2;
+{ Test 1 program for the Simple GUI Library. }
 
-{
+{ Simple GUI is a generic SDL2/Pascal GUI library by Matthias J. Molski,
+  get more infos here:
+    https://github.com/Free-Pascal-meets-SDL-Website/SimpleGUI.
 
-  Simple GUI is based upon Lachlans GUI (LK GUI). LK GUI's original source code
-  remark is shown below.
+  It is based upon LK GUI by Lachlan Kingsford for SDL 1.2/Free Pascal,
+  get it here: https://sourceforge.net/projects/lkgui.
 
   Written permission to re-license the library has been granted to me by the
   original author.
 
-}
+  Copyright (c) 2016-2020 Matthias J. Molski
 
-{*******************************************************}
-{                                                       }
-{       Lachlans GUI Library                            }
-{       Gui Test 1                                      }
-{                                                       }
-{       Copyright (c) 2009-10 Lachlan Kingsford         }
-{                                                       }
-{*******************************************************}
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-{
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
-    Simple GUI
-    **********
-
-    Copyright (c) 2016 Matthias J. Molski
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to
-    deal in the Software without restriction, including without limitation the
-    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-    sell copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-    IN THE SOFTWARE.
-
-    Installation
-    ************
-    - make sure you have SDL2 library installed on your system
-      (get here: http://libsdl.org/)
-    - make sure you have SDL2 units available
-      (get here: https://github.com/ev1313/Pascal-SDL-2-Headers)
-    - add the correct path to the SDL2 units to this project
-      (Project -> Project settings -> Paths -> Other unit files)
-
-}
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE. }
 
 uses
-  SG_GUILib,
   SDL2,
   SDL2_TTF,
   SDL2_Image,
   SG_GuiLib_Base,
-  SG_GuiLib_Element,
   SG_GuiLib_Canvas,
   SG_GuiLib_Form,
   SG_GuiLib_StdWgts,
-  SG_GuiLib_Master;
+  SG_GuiLib_Master,
+  SysUtils;
 
 var
   Renderer: PSDL_Renderer;
@@ -75,80 +50,81 @@ var
 
   BorderColor: TRGBA;
 
-  Form1, Form2, Form3, Form4: PGUI_Form;
-  Button1, Button2: PGUI_Button;
-  Chkbox1: PGUI_CheckBox;
-  Chkbox2, Chkbox3: PGUI_CheckBox;
-  Label1: PGUI_Label;
-  Textbox1: PGUI_Textbox;
-  ImageSfc: PGUI_Surface;
-  Listbox: PGUI_Listbox;
+  Form1, Form2, Form3, Form4: TGUI_Form;
+  Button1, Button2: TGUI_Button;
+  Chkbox1: TGUI_CheckBox;
+  Chkbox2, Chkbox3: TGUI_CheckBox;
+  Label1: TGUI_Label;
+  Textbox1: TGUI_Textbox;
+  ImageSfc: TGUI_Surface;
+  Listbox: TGUI_Listbox;
 
-  Master: PGUI_Master;
+  Master: TGUI_Master;
 
   Event: TSDL_Event;
-  StillGoing: boolean;
+  StillGoing: Boolean;
 
 const
   ResourcesDir = 'resources\';
 
 begin
-  //Initialise SDL
+  SetHeapTraceOutput('trace.log');
+  // Initialise SDL
   SDL_Init(SDL_INIT_EVERYTHING);
   Window := SDL_CreateWindow('Window', 10, 10, 1024, 768, SDL_WINDOW_SHOWN);
-  Renderer := SDL_CreateRenderer(Window, -1, SDL_RENDERER_TARGETTEXTURE);
+  Renderer := SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
 
-  //Initialise TTF and load Logo
+  // Initialise TTF and load Logo
   TTF_Init;
   Font := TTF_OpenFont(ResourcesDir + 'DejaVuSansMono.ttf', 15);
   Logo := SDL_LoadBMP(PChar(ResourcesDir + 'SGLogo.bmp'));
 
-  //Create master GUI element
-  New(Master, Init_Master);
-  Master^.SetWindow(Window);
-  Master^.SetRenderer(Renderer);
-  Master^.SetDbgName('Master');
+  // Create master GUI element
+  Master := TGUI_Master.Create;
+  Master.SetWindow(Window);
+  Master.SetRenderer(Renderer);
+  Master.SetDbgName('Master');
 
-  //Add children GUI elements
-  New(Form1, Init_Form);
-  Form1^.SetFont(Font);
-  Form1^.SetCaption('Form1');
-  Form1^.SetDbgName('Form 1');
-  Form1^.SetWidth(250);
-  //Form1^.SetFillStyle(FS_None);
-  Master^.AddChild(Form1);
+  // Add children GUI elements
+  Form1 := TGUI_Form.Create;
+  Form1.SetFont(Font);
+  Form1.SetCaption('Form1');
+  Form1.SetDbgName('Form 1');
+  Form1.SetWidth(250);
+  // Form1.SetFillStyle(FS_None); { TODO : Treat FillStyle correctly. }
+  Master.AddChild(Form1);
 
-  New(Form2, Init_Form);
-  Form2^.SetFont(Font);
-  Form2^.SetCaption('Form2');
-  Form2^.SetDbgName('Form 2');
-  Form2^.SetWidth(400);
-  Form2^.SetHeight(200);
-  Form2^.SetTop(400);
-  Form2^.SetLeft(500);
-  Master^.AddChild(Form2);
+  Form2 := TGUI_Form.Create;
+  Form2.SetFont(Font);
+  Form2.SetCaption('Form2');
+  Form2.SetDbgName('Form 2');
+  Form2.SetWidth(400);
+  Form2.SetHeight(200);
+  Form2.SetTop(400);
+  Form2.SetLeft(500);
+  Master.AddChild(Form2);
 
-  New(Form3, Init_Form);
-  Form3^.SetFont(Font);
-  Form3^.SetCaption('Form3');
-  Form3^.SetDbgName('Form 3');
-  Form3^.SetWidth(400);
-  Form3^.SetHeight(325);
-  Form3^.SetTop(400);
-  Master^.AddChild(Form3);
+  Form3 := TGUI_Form.Create;
+  Form3.SetFont(Font);
+  Form3.SetCaption('Form3');
+  Form3.SetDbgName('Form 3');
+  Form3.SetWidth(400);
+  Form3.SetHeight(325);
+  Form3.SetTop(400);
+  Master.AddChild(Form3);
 
-  New(Form4, Init_Form);
-  Form4^.SetFont(Font);
-  Form4^.SetCaption('Form4');
-  Form4^.SetDbgName('Form 4');
-  Form4^.SetWidth(300);
-  Form4^.SetHeight(300);
-  Form4^.SetTop(00);
-  Form4^.SetLeft(600);
-  Master^.AddChild(Form4);
+  Form4 := TGUI_Form.Create;
+  Form4.SetFont(Font);
+  Form4.SetCaption('Form4');
+  Form4.SetDbgName('Form 4');
+  Form4.SetWidth(300);
+  Form4.SetHeight(300);
+  Form4.SetTop(0);
+  Form4.SetLeft(600);
+  Master.AddChild(Form4);
 
-  New(Listbox, Init_Listbox);
-  with Listbox^ do
+  ListBox := TGUI_ListBox.Create;
+  with Listbox do
   begin
     SetLeft(10);
     SetTop(30);
@@ -156,7 +132,7 @@ begin
     SetHeight(200);
     SetDbgName('Listbox');
     SetFont(Font);
-    with GetItems^ do
+    with GetItems do
     begin
       additem('Item 1', 1);
       additem('Item 2', 2);
@@ -172,10 +148,10 @@ begin
       additem('Item 12', 12);
     end;
   end;
-  form4^.AddChild(Listbox);
+  form4.AddChild(Listbox);
 
-  New(Chkbox1, Init_Checkbox);
-  with ChkBox1^ do
+  Chkbox1 := TGUI_CheckBox.Create;
+  with ChkBox1 do
   begin
     SetCaption('Check 1');
     SetDbgName('Check 1');
@@ -185,10 +161,10 @@ begin
     SetTop(40);
     SetFont(Font);
   end;
-  Form2^.AddChild(ChkBox1);
+  Form2.AddChild(ChkBox1);
 
-  New(Chkbox2, Init_Checkbox);
-  with ChkBox2^ do
+  Chkbox2 := TGUI_CheckBox.Create;
+  with ChkBox2 do
   begin
     SetCaption('Exclusive 1');
     SetDbgName('Check 2');
@@ -199,10 +175,10 @@ begin
     SetFont(Font);
     SetExcGroup(1);
   end;
-  Form2^.AddChild(ChkBox2);
+  Form2.AddChild(ChkBox2);
 
-  New(Chkbox3, Init_Checkbox);
-  with ChkBox3^ do
+  Chkbox3 := TGUI_CheckBox.Create;
+  with ChkBox3 do
   begin
     SetCaption('Exclusive 2');
     SetDbgName('Check 3');
@@ -213,10 +189,10 @@ begin
     SetFont(Font);
     SetExcGroup(1);
   end;
-  Form2^.AddChild(ChkBox3);
+  Form2.AddChild(ChkBox3);
 
-  New(Button1, Init_Button);
-  with Button1^ do
+  Button1 := TGUI_Button.Create;
+  with Button1 do
   begin
     SetFont(Font);
     SetWidth(100);
@@ -226,10 +202,10 @@ begin
     SetCaption('Button 1');
     SetDbgName('Button 1');
   end;
-  Form1^.AddChild(Button1);
+  Form1.AddChild(Button1);
 
-  New(Button2, Init_Button);
-  with Button2^ do
+  Button2 := TGUI_Button.Create;
+  with Button2 do
   begin
     SetFont(Font);
     SetWidth(100);
@@ -240,8 +216,8 @@ begin
     SetDbgName('Button 2');
   end;
 
-  New(Label1, Init_Label);
-  with Label1^ do
+  Label1 := TGUI_Label.Create;
+  with Label1 do
   begin
     SetFont(Font);
     SetWidth(200);
@@ -251,11 +227,11 @@ begin
     SetCaption('Press ESC to quit.');
     SetDbgName('Label 1');
   end;
-  Form1^.AddChild(Label1);
+  Form1.AddChild(Label1);
 
 
-  New(TextBox1, Init_Textbox);
-  with TextBox1^ do
+  TextBox1 := TGUI_TextBox.Create;
+  with TextBox1 do
   begin
     SetFont(Font);
     SetWidth(230);
@@ -265,21 +241,21 @@ begin
     SetCaption('Textbox 1');
     SetDbgName('Textbox 1');
   end;
-  Form1^.AddChild(TextBox1);
+  Form1.AddChild(TextBox1);
 
-  New(ImageSfc, Init_Surface);
-  with ImageSfc^ do
-  begin
-    SetWidth(400-2);
-    SetHeight(300-2);
-    SetLeft(1);
-    SetTop(25);
-    SetSource(Logo);
-    SetDbgName('ImageSfc');
-  end;
-  Form3^.AddChild(ImageSfc);
+  //New(ImageSfc, Init_Surface); { TODO : Implement! }
+  //with ImageSfc do
+  //begin
+  //  SetWidth(400-2);
+  //  SetHeight(300-2);
+  //  SetLeft(1);
+  //  SetTop(25);
+  //  SetSource(Logo);
+  //  SetDbgName('ImageSfc');
+  //end;
+  //Form3.AddChild(ImageSfc);
 
-  Form1^.AddChild(Button2);
+  Form1.AddChild(Button2);
   stillgoing := True;
   while StillGoing = True do
   begin
@@ -295,21 +271,20 @@ begin
         begin
           if Event.key.keysym.sym = SDLK_ESCAPE then
             StillGoing := False;
-          Master^.InjectSDLEvent(@Event);
+          Master.InjectSDLEvent(@Event);
         end;
       end;
     end;
 
-    Master^.Paint;
+    Master.Paint;
 
     SDL_RenderPresent(Renderer);
   end;
 
-  Dispose(Master, Done_Master);
+  FreeAndNil(Master);
   SDL_FreeSurface(Logo);
   SDL_DestroyRenderer(Renderer);
   SDL_DestroyWindow(Window);
   TTF_CloseFont(Font);
   SDL_Quit;
-
 end.

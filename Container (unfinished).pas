@@ -86,7 +86,7 @@
       
       {: Procedure called by Scrollbars when their values change such that
       this controls moves the container} 
-      procedure Scrollbar_ValChanged(NewVal: Word; Dir: TDir);
+      procedure Scrollbar_ValChanged(NewVal: Word; Dir: TDirection);
     protected
       ContainerWidth, ContainerHeight: Word;
       ContainerSurface: PSDL_Surface;
@@ -329,7 +329,7 @@ begin
     end;  
   end;
 
-procedure TGUI_Container.Scrollbar_ValChanged(NewVal: Word; Dir: TDir);
+procedure TGUI_Container.Scrollbar_ValChanged(NewVal: Word; Dir: TDirection);
 begin
   case dir of
     Dir_Vertical:
@@ -348,7 +348,7 @@ begin
 procedure TGUI_Container.ctrl_MouseDown(X, Y: Word; Button: UInt8);
 var
   prev: PGUI_Element_LL;
-  passed: boolean;  
+  passed: Boolean;
 begin
   //writeln(dbgname, ' recieved MouseDown event ', x, ',', y, ',', Button);
   prev := Children^.last;
@@ -381,7 +381,7 @@ begin
 procedure TGUI_Container.ctrl_MouseUp(X, Y: Word; Button: UInt8);
 var
   prev: PGUI_Element_LL;
-  passed: boolean;
+  passed: Boolean;
 begin   
   //writeln(dbgname, ' recieved MouseUp event ', x, ',', y, ',', Button);
   prev := Children^.last;
@@ -422,7 +422,7 @@ begin
 procedure TGUI_Container.ctrl_MouseMotion(X, Y: Word; ButtonState: UInt8); 
 var
   prev, next: PGUI_Element_LL;
-  passed: boolean;
+  passed: Boolean;
 begin   
   //Check if MouseMotion needs to go to any children
   //writeln(dbgname, ' recieved MouseMotion event ', x, ',', y, ',', ButtonState);

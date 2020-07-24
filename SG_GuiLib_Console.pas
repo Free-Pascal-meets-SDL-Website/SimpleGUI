@@ -81,16 +81,16 @@ type
   pXYWord = ^tXYWord;
 
   tXYWord = record
-    X, Y: word;
+    X, Y: Word;
   end;
 
   pVideoCell = ^tVideoCell;
 
   tVideoCell = record
-    Character: word;
+    Character: Word;
     fore: TSDL_Color;
     back: TSDL_Color;
-    transback: boolean;
+    transback: Boolean;
   end;
 
   pVidArray = ^tVidArray;
@@ -101,19 +101,19 @@ type
   TGUI_Console = object(TGUI_Canvas)
   public
     Display: tVidArray;
-    AARender: boolean;
+    AARender: Boolean;
 
     constructor Init_Console;
     destructor Done_Console;
 
     function GetCursor: tXYWord;
-    procedure SetCursor(X, Y: word);
+    procedure SetCursor(X, Y: Word);
 
-    function GetTransBackDefault: boolean;
-    procedure SetTransBackDefault(NewDefault: boolean);
+    function GetTransBackDefault: Boolean;
+    procedure SetTransBackDefault(NewDefault: Boolean);
 
     function GetConsoleSize: tXYWord;
-    procedure SetConsoleSize(X, Y: word);
+    procedure SetConsoleSize(X, Y: Word);
     procedure SetConsoleSize(Size: tXYWord);
 
     procedure SetForeColor(NewSDLColor: TSDL_Color);
@@ -122,14 +122,14 @@ type
     procedure Render; virtual;
     procedure ClearScr;
 
-    function GetRef(X, Y: word): word; inline;
+    function GetRef(X, Y: Word): Word; inline;
 
     procedure Write(InStr: string);
   protected
     Cursor: tXYWord;
     Dimensions: tXYWord;
 
-    TransBackDefault: boolean;
+    TransBackDefault: Boolean;
   end;
 
 *)
@@ -162,18 +162,18 @@ begin
   GetCursor.Y := Cursor.Y;
 end;
 
-procedure TGUI_Console.SetCursor(X, Y: word);
+procedure TGUI_Console.SetCursor(X, Y: Word);
 begin
   Cursor.X := X;
   Cursor.Y := Y;
 end;
 
-function TGUI_Console.GetTransBackDefault: boolean;
+function TGUI_Console.GetTransBackDefault: Boolean;
 begin
   GetTransBackDefault := TransBackDefault;
 end;
 
-procedure TGUI_Console.SetTransBackDefault(NewDefault: boolean);
+procedure TGUI_Console.SetTransBackDefault(NewDefault: Boolean);
 begin
   TransBackDefault := NewDefault;
 end;
@@ -185,7 +185,7 @@ begin
   GetConsoleSize := Dimensions;
 end;
 
-procedure TGUI_Console.SetConsoleSize(X, Y: word);
+procedure TGUI_Console.SetConsoleSize(X, Y: Word);
 begin
   Dimensions.X := X;
   Dimensions.Y := Y;
@@ -196,7 +196,7 @@ begin
   Dimensions := Size;
 end;
 
-function TGUI_Console.GetRef(X, Y: word): word; inline;
+function TGUI_Console.GetRef(X, Y: Word): Word; inline;
 begin
   GetRef := X + Y * Dimensions.X;
 end;
@@ -218,12 +218,12 @@ end;
 //Writes a line of text
 procedure TGUI_Console.Write(InStr: string);
 var
-  i: word;
+  i: Word;
 begin
   for i := 1 to length(InStr) do
     with display[GetRef(Cursor.X + i - 1, Cursor.Y)] do
     begin
-      Character := word(InStr[i]);
+      Character := Word(InStr[i]);
       Fore.r := ForeColor.r;
       Fore.g := ForeColor.g;
       Fore.b := ForeColor.b;
@@ -237,15 +237,15 @@ end;
 //Draws the console to the surface
 procedure TGUI_Console.Render;
 var
-  CurX, CurY, FWidth: longint;
-  MinX, MaxX, MinY, MaxY, d: longint;
+  CurX, CurY, FWidth: LongInt;
+  MinX, MaxX, MinY, MaxY, d: LongInt;
   curglyph: pSDL_Surface;
   Loc: SDL_Rect;
 begin
   inherited Render;
   if font <> nil then
   begin
-    TTF_GlyphMetrics(Font, word('w'), MinX, FWidth, MinY, MaxY, d);
+    TTF_GlyphMetrics(Font, Word('w'), MinX, FWidth, MinY, MaxY, d);
     for CurX := 0 to (Dimensions.x - 1) do
     begin
       for CurY := 0 to (Dimensions.y) do
@@ -286,7 +286,7 @@ end;
 //Clears every character
 procedure TGUI_Console.ClearScr;
 var
-  i: word;
+  i: Word;
 begin
   for i := 0 to high(Display) do
     with display[i] do
