@@ -68,7 +68,7 @@ const
   ResourcesDir = 'resources\';
 
 begin
-  SetHeapTraceOutput('trace.log');
+  // SetHeapTraceOutput('trace.log'); // For debug, ignore or delete line!
   // Initialise SDL
   SDL_Init(SDL_INIT_EVERYTHING);
   Window := SDL_CreateWindow('Window', 10, 10, 1024, 768, SDL_WINDOW_SHOWN);
