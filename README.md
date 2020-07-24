@@ -36,6 +36,7 @@ It is based upon Lachlan Kingford's GUI (LK GUI) written for SDL 1.2.
 * finish Container feature (higher priority)
 * finish image widget (ImageSfc)
 * improve TextInput
+* update docs
 
 # License
 ##The MIT License (MIT)
