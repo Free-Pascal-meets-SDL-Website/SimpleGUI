@@ -4,6 +4,7 @@
 *.ppu
 *.compiled
 *.a
+*.lps
 backup/
 
 # Compiled source #
