@@ -56,7 +56,7 @@ var
   Chkbox2, Chkbox3: TGUI_CheckBox;
   Label1: TGUI_Label;
   Textbox1: TGUI_Textbox;
-  ImageSfc: TGUI_Surface;
+  Image1: TGUI_Image;
   Listbox: TGUI_Listbox;
 
   Master: TGUI_Master;
@@ -68,7 +68,7 @@ const
   ResourcesDir = 'resources\';
 
 begin
-  // SetHeapTraceOutput('trace.log'); // For debug, ignore or delete line!
+  SetHeapTraceOutput('trace.log'); // For debug, ignore or delete line!
   // Initialise SDL
   SDL_Init(SDL_INIT_EVERYTHING);
   Window := SDL_CreateWindow('Window', 10, 10, 1024, 768, SDL_WINDOW_SHOWN);
@@ -243,17 +243,17 @@ begin
   end;
   Form1.AddChild(TextBox1);
 
-  //New(ImageSfc, Init_Surface); { TODO : Implement! }
-  //with ImageSfc do
-  //begin
-  //  SetWidth(400-2);
-  //  SetHeight(300-2);
-  //  SetLeft(1);
-  //  SetTop(25);
-  //  SetSource(Logo);
-  //  SetDbgName('ImageSfc');
-  //end;
-  //Form3.AddChild(ImageSfc);
+  Image1 := TGUI_Image.Create;
+  with Image1 do
+  begin
+    SetWidth(400-2);
+    SetHeight(300-2);
+    SetLeft(1);
+    SetTop(25);
+    SetSource(Logo);
+    SetDbgName('Image1');
+  end;
+  Form3.AddChild(Image1);
 
   Form1.AddChild(Button2);
   stillgoing := True;

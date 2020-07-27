@@ -152,6 +152,10 @@ type
     {: SendSizeCallback is called when those messages need to be sent by this
       control }
     procedure SendSizeCallback(NewW, NewH: Word);
+    {: This callback routine is executed once after a child got added to its
+      parent. This allows childs to react to their addition, e.g. the Image
+      element can render texture after the parents Renderer is known to it. }
+    procedure ChildAddedCallback; virtual;
 
     {: Returns true if MouseEnter has been called and MouseExit hasn't yet
       been }
@@ -334,6 +338,7 @@ begin
       Next := Next.Next;
     end;
   end;
+  Child.ChildAddedCallback;
 end;
 
 procedure TGUI_Element.SetParent(NewParent: TGUI_Element);
@@ -403,9 +408,9 @@ end;
 
 destructor TGUI_Element.Destroy;
 begin
-  if Renderer <> nil then
+  if Assigned(Renderer) then
     SDL_DestroyRenderer(Renderer);
-  if Window <> nil then
+  if Assigned(Window) then
     SDL_DestroyWindow(Window);
   FreeAndNil(Children);
   inherited Destroy;
@@ -579,6 +584,11 @@ begin
     Next.Data.ParentSizeCallback(NewW, NewH);
     Next := Next.Next;
   end;
+end;
+
+procedure TGUI_Element.ChildAddedCallback;
+begin
+
 end;
 
 function TGUI_Element.InControl(X, Y: Integer): Boolean;

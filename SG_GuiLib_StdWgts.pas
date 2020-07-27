@@ -222,19 +222,23 @@ type
   private
   end;
 
-  { TGUI_Surface }
-  { TODO : Still to update! }
-  {: Class which draws another surface to the screen }
-  TGUI_Surface = class(TGUI_Canvas)
+  { TGUI_Image }
+  {: Generic Image Class based upon SDL_Texture. Memory management? }
+  TGUI_Image = class(TGUI_Canvas)
   public
     {: Constructor for Surface Widget. }
     constructor Create;
     {: Destructor for Surface Widget. }
     destructor Destroy; override;
-    {: Sets the source surface to draw from. }
-    procedure SetSource(NewSrcSurface: pSDL_Surface);
+    {: Allows for a surface to be transformed into texture after Renderer known
+      to GUI element. }
+    procedure ChildAddedCallback; override;
+    {: Sets the source texture to draw from. }
+    procedure SetSource(NewSrcTexture: PSDL_Texture);
+    {: Sets the source surface to draw from. Is converted into a texture. }
+    procedure SetSource(NewSrcSurface: PSDL_Surface); overload;
     {: Returns the current source surface. }
-    function GetSource: pSDL_Surface;
+    function GetSource: PSDL_Texture;
     {: Sets the rectangle from where to draw from on the source surface. }
     procedure SetSrcRect(NewRect: TSDL_Rect); virtual;
     {: Returns the current source surface rectangle to draw from. }
@@ -245,13 +249,26 @@ type
     {: Returns whether or not the surface takes the full size of the source
     surface or uses the bounding rectangle.}
     function GetFullSrc: Boolean;
+    {: Sets if SrcTexture (SDL_Texture) is free'd automatically.
+      - set to True if SetSource() is a SDL_Surface
+      - set to False if SetSource() is a SDL_Texture
+      - you may change it afterwards }
+    procedure SetFreeAutomatically(NewFreeStatus: Boolean);
+    {: Returns the current free setting for the Image texture. }
+    function GetFreeAutomatically: Boolean;
     {: Renders the widget }
-    procedure Render; virtual;
+    procedure Render; override;
   protected
-    SrcSurface: PSDL_Surface;
-
+    {: This surface is a helper to store a surface which is set by SetSource()
+      until AddChild() is called, because just then the Renderer is known. After
+      that is not used anymore and also not free'd. }
+    StoredSurface: PSDL_Surface;
+    {: This is the image represented as a SDL2 texture. }
+    SrcTexture: PSDL_Texture;
     SrcRect: TSDL_Rect;
+    DstRect: TSDL_Rect;
     FullSrc: Boolean;
+    IsFreed: Boolean;
   private
   end;
 
@@ -985,83 +1002,92 @@ end;
 
 
 //*********************************************************
-//TGUI_Surface
+//TGUI_Image
 //*********************************************************
 
-//constructor TGUI_Surface.Init_Surface;
-//begin
-//  inherited Init_Canvas;
-//  SetFillStyle(FS_None);
-//  SetFullSrc(True);
-//end;
-
-constructor TGUI_Surface.Create;
+constructor TGUI_Image.Create;
 begin
   inherited Create;
   SetFillStyle(FS_None);
   SetFullSrc(True);
+  SetFreeAutomatically(False);
 end;
 
-//destructor TGUI_Surface.Done_Surface;
-//begin
-//  inherited Done_Canvas;
-//end;
-
-destructor TGUI_Surface.Destroy;
+destructor TGUI_Image.Destroy;
 begin
   inherited Destroy;
+  if GetFreeAutomatically then
+    SDL_DestroyTexture(SrcTexture);
 end;
 
-procedure TGUI_Surface.SetSource(NewSrcSurface: pSDL_Surface);
+procedure TGUI_Image.ChildAddedCallback;
 begin
-  SrcSurface := NewSrcSurface;
+  inherited;
+  if Assigned(StoredSurface) then
+    SrcTexture := SDL_CreateTextureFromSurface(Renderer, StoredSurface);
 end;
 
-function TGUI_Surface.GetSource: pSDL_Surface;
+procedure TGUI_Image.SetSource(NewSrcTexture: PSDL_Texture);
 begin
-  GetSource := SrcSurface;
+  SrcTexture := NewSrcTexture;
 end;
 
-procedure TGUI_Surface.SetSrcRect(NewRect: TSDL_Rect);
+procedure TGUI_Image.SetSource(NewSrcSurface: PSDL_Surface);
+begin
+  StoredSurface := NewSrcSurface;
+  SetFreeAutomatically(True);
+end;
+
+function TGUI_Image.GetSource: PSDL_Texture;
+begin
+  GetSource := SrcTexture;
+end;
+
+procedure TGUI_Image.SetSrcRect(NewRect: TSDL_Rect);
 begin
   SrcRect := NewRect;
 end;
 
-function TGUI_Surface.GetSrcRect: TSDL_Rect;
+function TGUI_Image.GetSrcRect: TSDL_Rect;
 begin
   GetSrcRect := SrcRect;
 end;
 
-procedure TGUI_Surface.SetFullSrc(NewFullSrc: Boolean);
+procedure TGUI_Image.SetFullSrc(NewFullSrc: Boolean);
 begin
   FullSrc := NewFullSrc;
 end;
 
-function TGUI_Surface.GetFullSrc: Boolean;
+function TGUI_Image.GetFullSrc: Boolean;
 begin
   GetFullSrc := FullSrc;
 end;
 
-procedure TGUI_Surface.Render;
-var
-  tempTex: PSDL_Texture;
+procedure TGUI_Image.SetFreeAutomatically(NewFreeStatus: Boolean);
 begin
-  //inherited Render;
-  //if SrcSurface <> nil then
-  //begin
-  //  tempTex := SDL_CreateTextureFromSurface(Renderer, SrcSurface);
-  //  SDL_SetRenderTarget(Renderer, Texture);
-  //
-  //  if FullSrc then
-  //    //SDL_BlitSurface(SrcSurface, nil, Surface, nil)
-  //    SDL_RenderCopy(Renderer, tempTex, nil, nil)
-  //  else
-  //    //SDL_BlitSurface(SrcSurface, @SrcRect, Surface, nil);
-  //    SDL_RenderCopy(Renderer, tempTex, @SrcRect, nil);
-  //
-  //  SDL_SetRenderTarget(Renderer, nil);
-  //  SDL_DestroyTexture(tempTex);
-  //end;
+  IsFreed := NewFreeStatus;
+end;
+
+function TGUI_Image.GetFreeAutomatically: Boolean;
+begin
+  Result := IsFreed;
+end;
+
+procedure TGUI_Image.Render;
+begin
+  inherited Render;
+  if Assigned(SrcTexture) then
+  begin
+    DstRect.x := GetAbsLeft;
+    DstRect.y := GetAbsTop;
+    DstRect.w := GetWidth;
+    DstRect.h := GetHeight;
+
+    if FullSrc then
+      SDL_RenderCopy(Renderer, SrcTexture, nil, @DstRect)
+    else
+      SDL_RenderCopy(Renderer, SrcTexture, @SrcRect, @DstRect);
+  end;
 end;
 
 //*********************************************************

@@ -36,7 +36,6 @@ It is based upon Lachlan Kingford's GUI (LK GUI) written for SDL 1.2.
 ## To-Do
 * convert SG_GuiLib_Console.pas to SDL2 (low priority)
 * finish Container feature (higher priority)
-* finish image widget (ImageSfc)
 * improve TextInput
 * update docs
 
