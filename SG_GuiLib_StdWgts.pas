@@ -34,7 +34,7 @@ unit SG_GuiLib_StdWgts;
 interface
 
 uses SDL2, SDL2_TTF, Math,
-  SG_GuiLib_Base, SG_GuiLib_Element, SG_GuiLib_Canvas;
+  SG_GuiLib_Element, SG_GuiLib_Canvas, SG_GuiLib_Base;
 
 type
 

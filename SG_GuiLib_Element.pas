@@ -33,7 +33,7 @@ unit SG_GuiLib_Element;
 
 interface
 
-uses SDL2, SDL2_TTF, SG_GuiLib_Base, Math, Classes, SysUtils;
+uses SDL2, SDL2_TTF, Math, Classes, SysUtils, SG_GuiLib_Base;
 
 type
   TGUI_Element = class; // forward declaration

@@ -33,13 +33,11 @@ unit SG_GuiLib_Canvas;
 
 interface
 
-uses SDL2, SDL2_TTF, SysUtils, SG_GuiLib_Base, SG_GuiLib_Element;
+uses SDL2, SDL2_TTF, SysUtils, SG_GuiLib_Element, SG_GuiLib_Base;
 
 type
-
   { TGUI_Canvas }
   {: A Canvas is the generic drawable control. Most things come from Canvas. }
-
   TGUI_Canvas = class(TGUI_Element)
   public
     procedure Render; override;

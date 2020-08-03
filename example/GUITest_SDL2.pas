@@ -35,11 +35,8 @@ uses
   SDL2,
   SDL2_TTF,
   SDL2_Image,
+  SDL2_SimpleGUI,
   SG_GuiLib_Base,
-  SG_GuiLib_Canvas,
-  SG_GuiLib_Form,
-  SG_GuiLib_StdWgts,
-  SG_GuiLib_Master,
   SysUtils;
 
 var

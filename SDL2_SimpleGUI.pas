@@ -34,8 +34,21 @@ unit SDL2_SimpleGUI;
 interface
 
 uses
-  SDL2, SDL2_TTF,
-  SG_GuiLib_Base, SG_GuiLib_Element, SG_GuiLib_Canvas;
+  SDL2,
+  SG_GuiLib_Master,
+  SG_GuiLib_Form,
+  SG_GuiLib_StdWgts;
+
+type
+  TGUI_Master = SG_GuiLib_Master.TGUI_Master;
+  TGUI_Form = SG_GuiLib_Form.TGUI_Form;
+  TGUI_Button = SG_GuiLib_StdWgts.TGUI_Button;
+  TGUI_CheckBox = SG_GuiLib_StdWgts.TGUI_CheckBox;
+  TGUI_Label = SG_GuiLib_StdWgts.TGUI_Label;
+  TGUI_ScrollBar = SG_GuiLib_StdWgts.TGUI_ScrollBar;
+  TGUI_TextBox = SG_GuiLib_StdWgts.TGUI_TextBox;
+  TGUI_Image = SG_GuiLib_StdWgts.TGUI_Image;
+  TGUI_Listbox = SG_GuiLib_StdWgts.TGUI_Listbox;
 
 implementation
 
