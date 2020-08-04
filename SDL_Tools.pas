@@ -48,7 +48,7 @@ unit SDL_Tools;
 
 interface
 
-uses Math, SDL2, SG_GuiLib_Base;
+uses Math, SDL2, SDL2_SimpleGUI_Base;
 
 function calcdistance(x1, y1, x2, y2: extended): extended;
 procedure drawpixel(x, y: Word; screen: PSDL_Surface; r, g, b: UInt8); inline;

@@ -35,22 +35,22 @@ interface
 
 uses
   SDL2,
-  SG_GuiLib_Master,
-  SG_GuiLib_Form,
-  SG_GuiLib_StdWgts,
-  SG_GuiLib_Base;
+  SDL2_SimpleGUI_Master,
+  SDL2_SimpleGUI_Form,
+  SDL2_SimpleGUI_StdWgts,
+  SDL2_SimpleGUI_Base;
 
 { Base Types from Base Unit }
 type
-  TRGBA = SG_GuiLib_Base.TRGBA;
+  TRGBA = SDL2_SimpleGUI_Base.TRGBA;
 
-  TTextAlign = SG_GuiLib_Base.TTextAlign;
-  TVertAlign = SG_GuiLib_Base.TVertAlign;
-  TDirection = SG_GuiLib_Base.TDirection;
+  TTextAlign = SDL2_SimpleGUI_Base.TTextAlign;
+  TVertAlign = SDL2_SimpleGUI_Base.TVertAlign;
+  TDirection = SDL2_SimpleGUI_Base.TDirection;
 
-  TBorderStyle = SG_GuiLib_Base.TBorderStyle;
+  TBorderStyle = SDL2_SimpleGUI_Base.TBorderStyle;
 
-  TFillStyle = SG_GuiLib_Base.TFillStyle;
+  TFillStyle = SDL2_SimpleGUI_Base.TFillStyle;
 
 { Default Colors and Consts }
 const
@@ -76,15 +76,15 @@ const
 
 { GUI Elements and Widgets from respective units }
 type
-  TGUI_Master = SG_GuiLib_Master.TGUI_Master;
-  TGUI_Form = SG_GuiLib_Form.TGUI_Form;
-  TGUI_Button = SG_GuiLib_StdWgts.TGUI_Button;
-  TGUI_CheckBox = SG_GuiLib_StdWgts.TGUI_CheckBox;
-  TGUI_Label = SG_GuiLib_StdWgts.TGUI_Label;
-  TGUI_ScrollBar = SG_GuiLib_StdWgts.TGUI_ScrollBar;
-  TGUI_TextBox = SG_GuiLib_StdWgts.TGUI_TextBox;
-  TGUI_Image = SG_GuiLib_StdWgts.TGUI_Image;
-  TGUI_Listbox = SG_GuiLib_StdWgts.TGUI_Listbox;
+  TGUI_Master = SDL2_SimpleGUI_Master.TGUI_Master;
+  TGUI_Form = SDL2_SimpleGUI_Form.TGUI_Form;
+  TGUI_Button = SDL2_SimpleGUI_StdWgts.TGUI_Button;
+  TGUI_CheckBox = SDL2_SimpleGUI_StdWgts.TGUI_CheckBox;
+  TGUI_Label = SDL2_SimpleGUI_StdWgts.TGUI_Label;
+  TGUI_ScrollBar = SDL2_SimpleGUI_StdWgts.TGUI_ScrollBar;
+  TGUI_TextBox = SDL2_SimpleGUI_StdWgts.TGUI_TextBox;
+  TGUI_Image = SDL2_SimpleGUI_StdWgts.TGUI_Image;
+  TGUI_Listbox = SDL2_SimpleGUI_StdWgts.TGUI_Listbox;
 
 implementation
 

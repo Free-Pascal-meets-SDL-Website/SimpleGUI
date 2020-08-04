@@ -32,12 +32,11 @@ program GUITest_SDL2;
   IN THE SOFTWARE. }
 
 uses
+  SysUtils,
   SDL2,
   SDL2_TTF,
   SDL2_Image,
-  SDL2_SimpleGUI,
-  //SG_GuiLib_Base,
-  SysUtils;
+  SDL2_SimpleGUI;
 
 var
   Renderer: PSDL_Renderer;
