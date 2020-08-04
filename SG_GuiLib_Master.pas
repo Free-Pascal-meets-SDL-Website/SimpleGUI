@@ -33,7 +33,8 @@ unit SG_GuiLib_Master;
 
 interface
 
-uses SG_GuiLib_Element, SysUtils, SDL2;
+uses
+  SysUtils, SDL2, SG_GuiLib_Element;
 
 type
 

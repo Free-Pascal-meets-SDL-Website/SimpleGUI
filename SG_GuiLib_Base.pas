@@ -44,6 +44,7 @@ type
   TSDLTextInputArray = array[0..SDL_TEXTINPUTEVENT_TEXT_SIZE] of char;
 
 type
+  {: Basic color type. } { TODO : Why not using SDL_Color? }
   TRGBA = record
     r: byte;
     g: byte;
@@ -54,33 +55,8 @@ type
   TTextAlign = (Align_Left, Align_Center, Align_Right);
   TVertAlign = (VAlign_Top, VAlign_Center, VAlign_Bottom);
   TDirection = (Dir_Horizontal, Dir_Vertical);
-
   TBorderStyle = (BS_None, BS_Single);
-
   TFillStyle = (FS_None, FS_Filled);
-
-//Default Colors and Consts
-const
-  GUI_DefaultBackColor: TRGBA = (R: 48; G: 48; B: 48; A: 255);
-  GUI_DefaultTextBackColor: TRGBA = (R: 24; G: 24; B: 24; A: 255);
-  GUI_DefaultForeColor: TRGBA = (R: 190; G: 190; B: 190; A: 255);
-  GUI_DefaultBorderColor: TRGBA = (R: 64; G: 64; B: 64; A: 255);
-  GUI_DefaultFormBack: TRGBA = (R: 32; G: 32; B: 32; A: 255);
-  GUI_DefaultTitleBarBack: TRGBA = (R: 24; G: 24; B: 64; A: 255);
-  GUI_DefaultUnselectedTitleBarBack: TRGBA = (R: 24; G: 24; B: 24; A: 255);
-  GUI_SelectedColor: TRGBA = (R: 24; G: 24; B: 64; A: 255);
-  GUI_DefaultActiveColor: TRGBA = (R: 24; G: 24; B: 64; A: 255);
-  GUI_TitleBarHeight = 25;
-  GUI_FullTrans: TRGBA = (R: 0; G: 0; B: 0; A: 0);
-  GUI_ScrollbarSize = 11;
-  GUI_DebugColor: TRGBA = (R: 0; G: 255; B: 0; A: 255); //< for dbg purpose only
-
-  {$ifdef ENDIAN_LITTLE}
-  amask = $ff000000;
-  {$else}
-  amask = $000000ff;
-  {$endif}
-
 
 implementation
 

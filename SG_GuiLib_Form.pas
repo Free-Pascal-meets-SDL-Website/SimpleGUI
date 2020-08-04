@@ -33,7 +33,8 @@ unit SG_GuiLib_Form;
 
 interface
 
-uses SDL2, SDL2_TTF, SG_GuiLib_Element, SG_GuiLib_Canvas, SG_GuiLib_Base, Math;
+uses
+  SDL2, SDL2_TTF, Math, SG_GuiLib_Base, SG_GuiLib_Element, SG_GuiLib_Canvas;
 
 type
 
@@ -77,7 +78,8 @@ type
 
 implementation
 
-uses SDL_Tools;
+uses
+  SDL2_SimpleGUI;
 
 { TGUI_TitleBar }
 

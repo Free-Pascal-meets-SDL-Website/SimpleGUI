@@ -96,7 +96,7 @@ type
 implementation
 
 uses
-  SDL_Tools, Strings;
+  SDL2_SimpleGUI;
 
 var
   Exceptn: Exception;

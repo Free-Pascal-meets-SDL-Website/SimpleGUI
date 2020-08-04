@@ -36,7 +36,7 @@ uses
   SDL2_TTF,
   SDL2_Image,
   SDL2_SimpleGUI,
-  SG_GuiLib_Base,
+  //SG_GuiLib_Base,
   SysUtils;
 
 var

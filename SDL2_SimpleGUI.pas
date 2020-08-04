@@ -37,8 +37,44 @@ uses
   SDL2,
   SG_GuiLib_Master,
   SG_GuiLib_Form,
-  SG_GuiLib_StdWgts;
+  SG_GuiLib_StdWgts,
+  SG_GuiLib_Base;
 
+{ Base Types from Base Unit }
+type
+  TRGBA = SG_GuiLib_Base.TRGBA;
+
+  TTextAlign = SG_GuiLib_Base.TTextAlign;
+  TVertAlign = SG_GuiLib_Base.TVertAlign;
+  TDirection = SG_GuiLib_Base.TDirection;
+
+  TBorderStyle = SG_GuiLib_Base.TBorderStyle;
+
+  TFillStyle = SG_GuiLib_Base.TFillStyle;
+
+{ Default Colors and Consts }
+const
+  GUI_DefaultBackColor: TRGBA = (R: 48; G: 48; B: 48; A: 255);
+  GUI_DefaultTextBackColor: TRGBA = (R: 24; G: 24; B: 24; A: 255);
+  GUI_DefaultForeColor: TRGBA = (R: 190; G: 190; B: 190; A: 255);
+  GUI_DefaultBorderColor: TRGBA = (R: 64; G: 64; B: 64; A: 255);
+  GUI_DefaultFormBack: TRGBA = (R: 32; G: 32; B: 32; A: 255);
+  GUI_DefaultTitleBarBack: TRGBA = (R: 24; G: 24; B: 64; A: 255);
+  GUI_DefaultUnselectedTitleBarBack: TRGBA = (R: 24; G: 24; B: 24; A: 255);
+  GUI_SelectedColor: TRGBA = (R: 24; G: 24; B: 64; A: 255);
+  GUI_DefaultActiveColor: TRGBA = (R: 24; G: 24; B: 64; A: 255);
+  GUI_TitleBarHeight = 25;
+  GUI_FullTrans: TRGBA = (R: 0; G: 0; B: 0; A: 0);
+  GUI_ScrollbarSize = 11;
+  GUI_DebugColor: TRGBA = (R: 0; G: 255; B: 0; A: 255); //< for dbg purpose only
+
+  {$ifdef ENDIAN_LITTLE}
+  amask = $ff000000;
+  {$else}
+  amask = $000000ff;
+  {$endif}
+
+{ GUI Elements and Widgets from respective units }
 type
   TGUI_Master = SG_GuiLib_Master.TGUI_Master;
   TGUI_Form = SG_GuiLib_Form.TGUI_Form;
