@@ -9,6 +9,10 @@ It is based upon Lachlan Kingford's GUI (LK GUI) written for SDL 1.2.
 
 # Changelog
 ## Releases
+### v0.5.1
+#### 2020-08-04
+* restructured and renamed the units
+* you now need just to include the SDL2_SimpleGUI unit in the uses clause to have the whole capability of the library
 ### v0.5.0
 #### 2020-07-24
 * library uses Classes now (instead of out-dated Object types)
